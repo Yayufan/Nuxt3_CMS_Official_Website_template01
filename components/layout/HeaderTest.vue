@@ -87,7 +87,7 @@ import { Search } from '@element-plus/icons-vue'
         flex-grow: 1;
 
         :deep(.el-input__wrapper) {
-            background-color: $main-text-color;
+            background-color: $main-color;
             height: 1.5rem;
             width: 10rem;
             border-radius: 30px;
@@ -95,7 +95,7 @@ import { Search } from '@element-plus/icons-vue'
 
         :deep(.el-input__suffix) {
             background-color: #FFFFFF;
-            color: $main-text-color;
+            color: $main-color;
             padding-right: 1rem;
             height: 1rem;
             width: 0.8rem;
@@ -110,7 +110,7 @@ import { Search } from '@element-plus/icons-vue'
         padding: 0 0 3.8rem 2rem;
 
         .contact {
-            color: $main-text-color;
+            color: $main-color;
             font-size: 1rem;
         }
     }
@@ -118,29 +118,31 @@ import { Search } from '@element-plus/icons-vue'
 
 .PC-navbar {
     margin-left: 25vw;
+
     .el-sub-menu {
-        :deep(.el-sub-menu__title) { 
-            color: $main-text-color;
+        :deep(.el-sub-menu__title) {
+            color: $main-color;
             font-size: 1.5rem;
         }
 
     }
+
     .donate {
-        color: $main-text-color;
+        color: $main-color;
         font-size: 1.5rem;
     }
 }
 
 .popper {
-    .el-menu{
+    .el-menu {
         .el-menu-item:not(:first-child) {
             border-top: 1px solid #E0E0E0;
         }
+
         .el-menu-item {
             font-size: 1rem;
         }
-        
+
     }
 }
-
 </style>
