@@ -78,6 +78,7 @@
             </article>
 
 
+
         </div>
 
     </section>
@@ -109,6 +110,7 @@ import { ref, reactive } from 'vue'
     }
 
     .content-box {
+
         // background-color: aqua;
         width: 100%;
         color: $main-content-color;
@@ -186,6 +188,14 @@ import { ref, reactive } from 'vue'
 
             }
 
+
+
+        background-color: aqua;
+        width: 100%;
+
+        /**這邊是處理通用段落、sub-title 和 內容 */
+        .paragraph {
+            margin-bottom: 3%;
 
         }
 
