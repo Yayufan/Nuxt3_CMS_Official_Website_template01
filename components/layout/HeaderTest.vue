@@ -1,7 +1,7 @@
 <template>
-    <div class="PC-menu-box">
+    <header class="PC-menu-box">
         <div class="logo-box">
-            <img ref="" class="logo" src="/assets/img/logo.png" alt="logo"></img>
+            <img ref="" class="logo" src="@/assets/img/logo.png" alt="logo"></img>
         </div>        
         <div class="input-section">
             <el-input class="input" :suffix-icon="Search"></el-input>
@@ -9,7 +9,7 @@
         <div class="contact-section">
             <p class="contact">聯絡我們</p>
         </div>
-    </div>
+    </header>
 </template>
 <script lang="ts" setup>
  import {Search} from '@element-plus/icons-vue'
