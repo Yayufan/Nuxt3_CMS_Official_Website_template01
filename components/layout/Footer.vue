@@ -27,7 +27,7 @@
                     <p class="info-content">戶名:社團法人中華民國器官捐贈協會</p>
                 </div>
                 <div class="info-box">
-                    <p class="info-content">訪客人數 {{ numberOfVisitors }} 更新日期 {{ updateDate }}</p>
+                    <p class="info-content">訪客人數 {{ numberOfVisitors }} (當年度{{ numberOfVisitorsThisyear }}) 更新日期 {{ updateDate }}</p>
                 </div>
             </div>
         </div>
@@ -38,7 +38,8 @@
 </template>
 <script setup lang="ts">
 const numberOfVisitors = ref(3977434)
-const updateDate = ref('2024-10-21')
+const numberOfVisitorsThisyear = ref(156520)
+const updateDate = ref('2024年10月21日')
 </script>
 <style lang="scss" scoped>
 .footer-box {
@@ -49,6 +50,7 @@ const updateDate = ref('2024-10-21')
         justify-content: center;
         color: $main-content-color;
         font-size: 1rem;
+        padding-bottom: 5vw;
     }
 }
 .footer-info {
@@ -57,6 +59,7 @@ const updateDate = ref('2024-10-21')
     justify-content: center;
     align-items: center;
     width: 100%;
+    // padding-bottom: 0;
 
     @media screen and (max-width:481px) {
         flex-direction: column;
@@ -83,7 +86,7 @@ const updateDate = ref('2024-10-21')
         .info-box {
             align-items: center;
             display: flex;
-            padding: 0.8rem 0;
+            padding: 0.3rem 0;
 
             .visitors-number-content, .info-content {
                 margin: 0;
