@@ -1,7 +1,7 @@
 <template>
     <div class="menu-section">
 
-        <el-menu class="PC-navbar" :ellipsis="false" mode="horizontal" @select="" :popper-offset="-5"
+        <el-menu class="PC-navbar" :ellipsis="false" mode="horizontal" @select="" :popper-offset="44"
             popper-class="popper">
             <!-- <el-menu-item> -->
             <el-menu-item v-if="showLogo" class="logo-box">
@@ -107,12 +107,14 @@ watch(scrollPosition, (newValue) => {
 
 .popper {
     .el-menu {
+        width: 20vw;
         .el-menu-item:not(:first-child) {
             border-top: 1px solid #E0E0E0;
         }
 
         .el-menu-item {
             font-size: 1rem;
+            // width: 40vw;
         }
 
     }

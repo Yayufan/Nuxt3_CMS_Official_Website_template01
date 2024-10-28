@@ -19,8 +19,8 @@ import { Search } from '@element-plus/icons-vue'
 <style lang="scss" scoped>
 .logo-and-search-section {
     background-color: #FFFFFF;
-    padding-top: 2vw;
     display: flex;
+    padding-top: 1.5vw;
 
     .logo-box {
         flex-grow: 4;
@@ -32,9 +32,10 @@ import { Search } from '@element-plus/icons-vue'
     }
 
     .input-section {
-        padding-top: 3.5rem;
         flex-grow: 1;
-
+        display: flex;
+        align-self: self-end;
+        padding-bottom: 0.8vw;
         :deep(.el-input__wrapper) {
             background-color: $main-color;
             height: 1.5rem;
@@ -54,9 +55,12 @@ import { Search } from '@element-plus/icons-vue'
 
     .contact-section {
         flex-grow: 1;
-        margin-top: 3.8rem;
-        padding-bottom:3.8rem;
+        // padding-bottom:3.8rem;
         padding-left: 2rem;
+        display: flex;
+        align-items: self-end;
+        padding-bottom: 0.8vw;
+
 
         .contact {
             color: $main-color;

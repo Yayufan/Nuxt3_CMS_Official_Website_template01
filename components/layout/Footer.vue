@@ -1,7 +1,7 @@
 <template>
     <footer class="footer-box">
         <div class="footer-info">
-            <div class="footer-item">
+            <div class="footer-item1">
                 <div class="info-box"><p class="info-content">社團法人中華民國器官捐贈協會</p></div>
                 <div class="info-box"><img class="map-icon" src="@/assets/img/MapMarkedAlt.svg" alt="">
                     <p class="info-content">地址:106台北市大安區信義路四段24號6樓</p>
@@ -15,7 +15,7 @@
                     <p class="info-content">聯絡信箱:office@organ.org.tw</p>
                 </div>
             </div>
-            <div class="footer-item">
+            <div class="footer-item2">
                 <div class="info-box">
                     <p class="info-content">立案字號: 台內社字第8221013號</p>
                 </div>
@@ -51,6 +51,8 @@ const updateDate = ref('2024年10月21日')
         color: $main-content-color;
         font-size: 1rem;
         padding-bottom: 5vw;
+        letter-spacing: 0.2rem;
+
     }
 }
 .footer-info {
@@ -60,21 +62,38 @@ const updateDate = ref('2024年10月21日')
     align-items: center;
     width: 100%;
     // padding-bottom: 0;
+    letter-spacing: 0.1rem;
+    
 
     @media screen and (max-width:481px) {
         flex-direction: column;
         width: 100%;
     }
 
-    .footer-item {
-        width: 25%;
+    .footer-item1 {
+        width: 30%;
+        margin-right: 10vw;
+        @media screen and (max-width:481px) {
+            margin-right: 0;
+            width: 80% !important;
+        }
+        
+    }
+    
+    .footer-item2 {
+        width: 43%;
         
         @media screen and (max-width:481px) {
             width: 80% !important;
         }
 
+    }
+
+    .footer-item1, .footer-item2 {
+
         border-left: 1px solid $main-content-color;
-        margin: 2vw 0;
+        margin-top: 2vw;
+        margin-bottom: 2vw;
         padding-left: 2vw;
         // min-height: 10rem;
         font-size: 0.8rem;
@@ -87,6 +106,7 @@ const updateDate = ref('2024年10月21日')
             align-items: center;
             display: flex;
             padding: 0.3rem 0;
+            font-size: 1rem;
 
             .visitors-number-content, .info-content {
                 margin: 0;
