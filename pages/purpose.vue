@@ -81,7 +81,7 @@
             <article class="paragraph ">
                 <h2 class="sub-title">協會章程</h2>
                 <div class="content regulation-box">
-                    <a href="@/assets/files/regulation_1071005.pdf" download >社團法人章程-1071005修正版.pdf</a>
+                    <a href="/files/regulation_1071005.pdf" download >社團法人章程-1071005修正版.pdf</a>
                 </div>
 
             </article>
@@ -228,7 +228,7 @@ const getOtherList = () => {
     if (!showFullList.value) {
 
         /**
-         * array.splice(startIndex, deleteCount, item1, item2, ...)
+         * array.splice(startIndex, deleteCount, item1, item2, ...), 會更改原本的數組
          * 參數說明  ：
          * startIndex：開始修改的位置（索引）
          * deleteCount：要刪除的元素數量
@@ -272,7 +272,9 @@ const getOtherList = () => {
     .content-box {
         // background-color: aqua;
         width: 100%;
-        color: #6D6D6D;
+
+        color: $main-content-color;
+
 
         /**這邊是處理通用段落、sub-title 和 內容 */
         .paragraph {
