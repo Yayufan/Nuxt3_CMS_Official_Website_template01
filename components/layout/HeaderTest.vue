@@ -20,14 +20,14 @@ import { Search } from '@element-plus/icons-vue'
 .logo-and-search-section {
     background-color: #FFFFFF;
     display: flex;
-    padding-top: 1.5vw;
+    padding-top: 2%;
 
     .logo-box {
         flex-grow: 4;
-        margin-left: 40vw;
+        margin-left: 40%;
 
         .logo {
-            width: 20vw;
+            width: 20rem;
         }
     }
 
@@ -35,10 +35,10 @@ import { Search } from '@element-plus/icons-vue'
         flex-grow: 1;
         display: flex;
         align-self: self-end;
-        padding-bottom: 0.8vw;
+        padding-bottom: 1%;
         :deep(.el-input__wrapper) {
             background-color: $main-color;
-            height: 1.5rem;
+            max-height: 1.5rem;
             width: 10rem;
             border-radius: 30px;
         }
@@ -47,7 +47,7 @@ import { Search } from '@element-plus/icons-vue'
             background-color: #FFFFFF;
             color: $main-color;
             padding-right: 1rem;
-            height: 1rem;
+            max-height: 1rem;
             width: 0.8rem;
             border-radius: 10px;
         }
@@ -55,11 +55,10 @@ import { Search } from '@element-plus/icons-vue'
 
     .contact-section {
         flex-grow: 1;
-        // padding-bottom:3.8rem;
         padding-left: 2rem;
         display: flex;
         align-items: self-end;
-        padding-bottom: 0.8vw;
+        padding-bottom: 1%;
 
 
         .contact {

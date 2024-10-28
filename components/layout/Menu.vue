@@ -78,8 +78,8 @@ watch(scrollPosition, (newValue) => {
         justify-content: center;
         border-bottom: none;
         width: 100vw;
-        padding: 3vw 0;
-        // line-height: ;
+        padding-top: 3%;
+        padding-bottom: 3%;
 
 
         .el-sub-menu {
@@ -99,7 +99,7 @@ watch(scrollPosition, (newValue) => {
             transition: opacity 0.1s ease;
 
             .logo {
-                width: 13vw;
+                width: 13rem;
             }
         }
     }
@@ -107,14 +107,12 @@ watch(scrollPosition, (newValue) => {
 
 .popper {
     .el-menu {
-        width: 20vw;
         .el-menu-item:not(:first-child) {
             border-top: 1px solid #E0E0E0;
         }
 
         .el-menu-item {
             font-size: 1rem;
-            // width: 40vw;
         }
 
     }
