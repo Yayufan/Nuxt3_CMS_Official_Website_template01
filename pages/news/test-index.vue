@@ -15,7 +15,9 @@
 
                 <div class="article-info-box">
                     <h2 class="article-title">怡馨調心成長工作房-中區</h2>
-                    <p class="article-description">身體與心理是一體的兩面，兩者有著互相影響、密不可分的關係，今年我們邀請芳療師和身體工作的經絡老師，來跟大家分享如何運用香氣、經絡按摩的方法來照顧好自己的身體與心理，才有更多力量面對生活的種種挑戰，歡迎大家一起來學期吧</p>
+                    <p class="article-description">
+                        身體與心理是一體的兩面，兩者有著互相影響、密不可分的關係，今年我們邀請芳療師和身體工作的經絡老師，來跟大家分享如何運用香氣、經絡按摩的方法來照顧好自己的身體與心理，才有更多力量面對生活的種種挑戰，歡迎大家一起來學期吧
+                    </p>
                 </div>
 
             </div>
@@ -49,6 +51,23 @@ import { ref, reactive } from 'vue'
 
     .content-box {
         margin-left: 10%;
+        margin-right: 10%;
+
+        .article-item {
+            display: flex;
+
+            .article-img-box {
+                max-width: 15rem;
+
+                img {
+                    width: 100%;
+                }
+
+            }
+
+
+        }
+
     }
 }
 </style>
