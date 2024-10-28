@@ -64,4 +64,4 @@ import { Search } from '@element-plus/icons-vue'
     }
 }
 
-</style>
+</style>    
