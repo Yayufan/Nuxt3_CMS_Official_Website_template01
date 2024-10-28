@@ -1,7 +1,11 @@
 <template>
     <footer class="footer-box">
         <div class="footer-info">
+<<<<<<< HEAD
             <div class="footer-item1">
+=======
+            <div class="footer-item">
+>>>>>>> main
                 <div class="info-box"><p class="info-content">社團法人中華民國器官捐贈協會</p></div>
                 <div class="info-box"><img class="map-icon" src="@/assets/img/MapMarkedAlt.svg" alt="">
                     <p class="info-content">地址:106台北市大安區信義路四段24號6樓</p>
@@ -15,7 +19,11 @@
                     <p class="info-content">聯絡信箱:office@organ.org.tw</p>
                 </div>
             </div>
+<<<<<<< HEAD
             <div class="footer-item2">
+=======
+            <div class="footer-item">
+>>>>>>> main
                 <div class="info-box">
                     <p class="info-content">立案字號: 台內社字第8221013號</p>
                 </div>
@@ -51,6 +59,7 @@ const updateDate = ref('2024年10月21日')
         color: $main-content-color;
         font-size: 1rem;
         padding-bottom: 5vw;
+<<<<<<< HEAD
         letter-spacing: 0.2rem;
 
     }
@@ -65,11 +74,24 @@ const updateDate = ref('2024年10月21日')
     letter-spacing: 0.1rem;
     
 
+=======
+    }
+}
+.footer-info {
+    background-color: #EFEFEE;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    // padding-bottom: 0;
+
+>>>>>>> main
     @media screen and (max-width:481px) {
         flex-direction: column;
         width: 100%;
     }
 
+<<<<<<< HEAD
     .footer-item1 {
         width: 30%;
         margin-right: 10vw;
@@ -82,11 +104,16 @@ const updateDate = ref('2024年10月21日')
     
     .footer-item2 {
         width: 43%;
+=======
+    .footer-item {
+        width: 25%;
+>>>>>>> main
         
         @media screen and (max-width:481px) {
             width: 80% !important;
         }
 
+<<<<<<< HEAD
     }
 
     .footer-item1, .footer-item2 {
@@ -94,6 +121,10 @@ const updateDate = ref('2024年10月21日')
         border-left: 1px solid $main-content-color;
         margin-top: 2vw;
         margin-bottom: 2vw;
+=======
+        border-left: 1px solid $main-content-color;
+        margin: 2vw 0;
+>>>>>>> main
         padding-left: 2vw;
         // min-height: 10rem;
         font-size: 0.8rem;
@@ -106,7 +137,10 @@ const updateDate = ref('2024年10月21日')
             align-items: center;
             display: flex;
             padding: 0.3rem 0;
+<<<<<<< HEAD
             font-size: 1rem;
+=======
+>>>>>>> main
 
             .visitors-number-content, .info-content {
                 margin: 0;
