@@ -87,7 +87,7 @@ const getNewsList = async (page: number, size: number) => {
 
 }
 
-await getNewsList(currentPage.value,10)
+await getNewsList(currentPage.value, 10)
 
 
 //監聽當前頁數的變化,如果有更動就call API 獲取數組數據
