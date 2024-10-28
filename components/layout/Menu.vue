@@ -1,13 +1,12 @@
 <template>
     <div class="menu-section">
+
         <el-menu class="PC-navbar" :ellipsis="false" mode="horizontal" @select="" :popper-offset="-5"
             popper-class="popper">
             <!-- <el-menu-item> -->
-            <transition name="fade">
-                <div v-if="showLogo" class="logo-box">
-                    <img ref="" class="logo" src="@/assets/img/logo.png" alt="logo">
-                </div>
-            </transition>
+            <el-menu-item v-if="showLogo" class="logo-box">
+                <img ref="" class="logo" src="@/assets/img/logo.png" alt="logo">
+            </el-menu-item>
             <el-sub-menu index="1">
                 <template #title>加入我們</template>
                 <el-menu-item index="/education" @click="">宗旨任務</el-menu-item>
@@ -70,21 +69,17 @@ watch(scrollPosition, (newValue) => {
 .menu-section {
     display: flex;
     justify-content: center;
+    background-color: #FFFFFF;
 
-    .logo-box {
-        transition: opacity 0.1s ease;
 
-        .logo {
-            width: 15vw;
-        }
-    }
 
     .PC-navbar {
         display: flex;
         justify-content: center;
         border-bottom: none;
         width: 100vw;
-        min-height: 5vw;
+        padding: 3vw 0;
+        // line-height: ;
 
 
         .el-sub-menu {
@@ -98,6 +93,14 @@ watch(scrollPosition, (newValue) => {
         .donate {
             color: $main-color;
             font-size: 1.2rem;
+        }
+
+        .logo-box {
+            transition: opacity 0.1s ease;
+
+            .logo {
+                width: 13vw;
+            }
         }
     }
 }
@@ -113,18 +116,5 @@ watch(scrollPosition, (newValue) => {
         }
 
     }
-}
-
-.fade-enter-active,
-.fade-leave-active {
-    transition: opacity 0.9s ease;
-}
-
-.fade-enter,
-.fade-leave-to
-
-/* .fade-leave-active 在舊版本中使用 */
-    {
-    opacity: 0;
 }
 </style>

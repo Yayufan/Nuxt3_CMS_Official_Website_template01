@@ -19,7 +19,7 @@ import { Search } from '@element-plus/icons-vue'
 <style lang="scss" scoped>
 .logo-and-search-section {
     background-color: #FFFFFF;
-    padding: 2vw 0 0 0;
+    padding-top: 2vw;
     display: flex;
 
     .logo-box {
@@ -55,7 +55,8 @@ import { Search } from '@element-plus/icons-vue'
     .contact-section {
         flex-grow: 1;
         margin-top: 3.8rem;
-        padding: 0 0 3.8rem 2rem;
+        padding-bottom:3.8rem;
+        padding-left: 2rem;
 
         .contact {
             color: $main-color;
