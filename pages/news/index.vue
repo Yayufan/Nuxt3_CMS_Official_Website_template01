@@ -1,6 +1,7 @@
 <!--  -->
 <template>
 
+    <Breadcrumbs firstRoute="信息看板" secoundRoute="最新消息"></Breadcrumbs>
 
     <section class="common-seciton">
 
@@ -40,6 +41,7 @@
 
 import { descriptionProps } from 'element-plus';
 import { ref, reactive } from 'vue'
+import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
 
 //設定分頁組件,currentPage當前頁數
 let currentPage = ref(1)
