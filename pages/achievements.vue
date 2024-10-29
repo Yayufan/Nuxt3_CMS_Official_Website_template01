@@ -1,6 +1,8 @@
 <!--  -->
 <template>
 
+<Breadcrumbs firstRoute="加入我們" secoundRoute="歷年成果(簽卡分析)" ></Breadcrumbs>
+
     <section class="common-seciton">
 
         <h1 class="common-title">歷年成果(簽卡分析)</h1>
@@ -42,6 +44,7 @@
 <script setup lang='ts'>
 
 import { ref, reactive } from 'vue'
+import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
 
 </script>
 
@@ -75,7 +78,7 @@ import { ref, reactive } from 'vue'
         .download-file-box {
             display: flex;
             flex-direction: column;
-            margin-left: 3%;
+            margin-left: 2.5rem;
 
             .download-link {
                 margin: 0.5rem;
