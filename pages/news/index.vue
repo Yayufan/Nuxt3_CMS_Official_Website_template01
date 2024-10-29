@@ -73,9 +73,6 @@ let articleList = reactive({
 })
 
 
-
-
-
 </script>
 
 <style scoped lang="scss">
@@ -127,9 +124,7 @@ let articleList = reactive({
 
             }
 
-
         }
-
     }
 }
 </style>
