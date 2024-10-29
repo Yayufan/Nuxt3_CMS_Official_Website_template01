@@ -21,12 +21,15 @@
 .breadcrumbs {
     padding: 20px 0;
     max-width: 100vw;
+    max-width: 100vw;
     background-color: #EAEAE9;
     display: flex;
     justify-content: center;
     
+    
     .breadcrumb {
         width: 55%;
+        margin-left:4%;
         margin-left:4%;
         display: flex;
         line-height: 100%;

@@ -2,12 +2,22 @@
     <div class="menu-section">
 
         <el-menu class="PC-navbar" :ellipsis="false" mode="horizontal" @select="" :popper-offset="-1"
+        <el-menu class="PC-navbar" :ellipsis="false" mode="horizontal" @select="" :popper-offset="-1"
             popper-class="popper">
             <!-- <el-menu-item> -->
             <el-menu-item v-if="showLogo" class="logo-box">
                 <nuxt-link :to="'/'"><img ref="" class="logo" src="@/assets/img/logo.png" alt="logo"></nuxt-link>
+                <nuxt-link :to="'/'"><img ref="" class="logo" src="@/assets/img/logo.png" alt="logo"></nuxt-link>
             </el-menu-item>
             <el-sub-menu index="1">
+                <template #title class="firstTitle">加入我們</template>
+                <nuxt-link :to="'/purpose'"><el-menu-item index="/education" @click="">宗旨任務</el-menu-item></nuxt-link>
+                <nuxt-link :to="'/become-member'"><el-menu-item index="/medical-knowledge" @click="">加入會員</el-menu-item></nuxt-link>
+                <nuxt-link :to="'/association-chronology'"> <el-menu-item index="/medical-knowledge"
+                        @click="">協會年表</el-menu-item></nuxt-link>
+                <nuxt-link :to="'/achievements'"><el-menu-item index="/medical-knowledge" @click="">歷年成果(簽卡分析)</el-menu-item></nuxt-link>
+                <nuxt-link :to="'https://www.facebook.com/organassociation/'"><el-menu-item
+                        index="/medical-knowledge">臉書粉絲團</el-menu-item></nuxt-link>
                 <template #title class="firstTitle">加入我們</template>
                 <nuxt-link :to="'/purpose'"><el-menu-item index="/education" @click="">宗旨任務</el-menu-item></nuxt-link>
                 <nuxt-link :to="'/become-member'"><el-menu-item index="/medical-knowledge" @click="">加入會員</el-menu-item></nuxt-link>
@@ -21,6 +31,9 @@
             <!-- </el-menu-item> -->
             <el-sub-menu index="2">
                 <template #title>訊息看板</template>
+                <nuxt-link :to="'/news'"><el-menu-item>最新消息</el-menu-item></nuxt-link>
+                <nuxt-link :to="'/event-highlights'"><el-menu-item>活動花絮</el-menu-item></nuxt-link>
+                <nuxt-link :to="'/cooperation'"><el-menu-item>合作申請單</el-menu-item></nuxt-link>
                 <nuxt-link :to="'/news'"><el-menu-item>最新消息</el-menu-item></nuxt-link>
                 <nuxt-link :to="'/event-highlights'"><el-menu-item>活動花絮</el-menu-item></nuxt-link>
                 <nuxt-link :to="'/cooperation'"><el-menu-item>合作申請單</el-menu-item></nuxt-link>
@@ -86,8 +99,6 @@ watch(scrollPosition, (newValue) => {
             :deep(.el-sub-menu__title) {
                 color: $main-color;
                 font-size: 1.2rem;
-                padding-left: 0;
-                border-bottom: none;
             }
             
         }
