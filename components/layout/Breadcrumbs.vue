@@ -35,7 +35,7 @@
         letter-spacing: 0.1rem;
         color: $main-content-color;
         justify-content: flex-start;
-       :deep(.el-breadcrumb__inner) {
+       :deep(.is-link) {
             &:hover {
                 color: $main-color;
             }
