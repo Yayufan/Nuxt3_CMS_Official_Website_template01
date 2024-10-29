@@ -2,7 +2,6 @@
     <div class="menu-section">
 
         <el-menu class="PC-navbar" :ellipsis="false" mode="horizontal" @select="" :popper-offset="44"
-        <el-menu class="PC-navbar" :ellipsis="false" mode="horizontal" @select="" :popper-offset="44"
             popper-class="popper">
             <!-- <el-menu-item> -->
             <el-menu-item v-if="showLogo" class="logo-box">
