@@ -2,7 +2,7 @@
     <header class="PC-menu-box">
         <div class="logo-and-search-section">
             <div class="logo-box">
-                <img ref="" class="logo" src="@/assets/img/logo.png" alt="logo"></img>
+                <a href="/"><img ref="" class="logo" src="@/assets/img/logo.png" alt="logo"></img></a>
             </div>
             <div class="input-section">
                 <el-input class="input" v-model="search" :suffix-icon="Search"></el-input>
