@@ -2,16 +2,20 @@
     <div class="breadcrumbs">
         <el-breadcrumb class="breadcrumb" :separator-icon="ArrowRight">
             <el-breadcrumb-item :to="{ path: '/' }">首頁</el-breadcrumb-item>
-            <el-breadcrumb-item>{{ firstRoute }}</el-breadcrumb-item>
-            <el-breadcrumb-item>{{ secound }}</el-breadcrumb-item>
+            <el-breadcrumb-item>{{ props.firstRoute }}</el-breadcrumb-item>
+            <el-breadcrumb-item>{{ props.secoundRoute }}</el-breadcrumb-item>
         </el-breadcrumb>
     </div>
 </template>
 <script lang="ts" setup>
     import { ArrowRight } from '@element-plus/icons-vue'
 
-    const firstRoute = '加入我們';
-    const secound = '協會年表';
+    const props = defineProps<{
+        firstRoute: string,
+        secoundRoute: string
+    }>();
+
+
 </script>
 <style lang="scss" scoped>
 .breadcrumbs {

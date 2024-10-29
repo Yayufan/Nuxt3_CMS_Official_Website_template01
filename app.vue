@@ -6,7 +6,7 @@
     <!-- <Header3></Header3> -->
     <HeaderTest></HeaderTest>
     <Menu class="menu-bar"></Menu>
-    <Breadcrumbs></Breadcrumbs>
+    <!-- <Breadcrumbs></Breadcrumbs> -->
     <!-- 先用一個main標籤將之後要顯示的路由組件包起來 -->
     <main class="content">
       <NuxtPage></NuxtPage>
