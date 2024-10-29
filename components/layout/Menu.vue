@@ -88,9 +88,9 @@ watch(scrollPosition, (newValue) => {
                 font-size: 1.2rem;
                 padding-left: 0;
             }
-
+            
         }
-
+        
         .donate {
             color: $main-color;
             font-size: 1.2rem;
