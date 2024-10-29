@@ -13,16 +13,16 @@
             </div>
             <div class="link-box">
                 <div class="link-item">
-                    <NuxtLink :class="{ active: activeLink === 'news' }" ref="news" @click="handleClick('news')">最新消息
-                    </NuxtLink>
+                    <nuxt-link :class="{ active: activeLink === 'news' }" ref="news" @click="handleClick('news')">最新消息
+                    </nuxt-link>
                 </div>
                 <div class="link-item">
-                    <NuxtLink :class="{ active: activeLink === 'eventHighlight' }" ref="eventHighlight"
-                        @click="handleClick('eventHighlight')">活動花絮</NuxtLink>
+                    <nuxt-link :class="{ active: activeLink === 'eventHighlight' }" ref="eventHighlight"
+                        @click="handleClick('eventHighlight')">活動花絮</nuxt-link>
                 </div>
                 <div class="link-item">
-                    <NuxtLink :class="{ active: activeLink === 'form' }" ref="collaborationApplicationForm"
-                        @click="handleClick('form')">合作申請單</NuxtLink>
+                    <nuxt-link :class="{ active: activeLink === 'form' }" ref="collaborationApplicationForm"
+                        @click="handleClick('form')">合作申請單</nuxt-link>
                 </div>
             </div>
             <div class="article">
