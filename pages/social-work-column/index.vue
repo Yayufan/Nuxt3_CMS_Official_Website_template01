@@ -22,7 +22,13 @@
                     <nuxt-link class="more-btn" to="/">查看更多</nuxt-link>
                 </div>
 
+                <div class="circle-mask"></div>
+
             </article>
+
+
+
+
 
             <!-- 
         分頁插件 total為總資料數(這邊設置20筆),  default-page-size代表每頁顯示資料(預設為10筆,這邊設置為5筆) 
@@ -104,6 +110,7 @@ let bookArticleList = reactive({
         justify-content: space-between;
 
         .article-item {
+            position: relative;
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -153,6 +160,21 @@ let bookArticleList = reactive({
 
                 }
             }
+
+
+            /**圓形遮罩 */
+            .circle-mask {
+                position: absolute;
+                top: 0;
+                left: 50%;
+                width: 3.5rem;
+                height: 3.5rem;
+                border: 3px solid #fff;
+                border-radius: 50%;
+                background-color: $sub-color;
+                transform: translate(-50%, -50%);
+            }
+
 
         }
 
