@@ -334,7 +334,7 @@ let articleList = reactive({
             margin:3% 0 0 10%;
 
             .link-item {
-                margin: 0 9% 2% 0;
+                margin: 0 8% 2% 0;
                 p {
                     color: #91715F;
                     // letter-spacing: 0.1rem;

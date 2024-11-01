@@ -34,7 +34,7 @@
             <article class="paragraph ">
                 <h2 class="sub-title">組織架構</h2>
                 <div class="content organizational-structure-box ">
-                    <img src="@/assets/img/organizational-chart.jpg">
+                    <img src="@/assets/img/organizational-chart.png">
                 </div>
             </article>
 
@@ -283,6 +283,11 @@ const getOtherList = () => {
         /**這邊是處理通用段落、sub-title 和 內容 */
         .paragraph {
             margin-bottom: 3%;
+
+            @media screen and (max-width:480px) {
+                margin-bottom: 6%;
+            }
+
         }
 
         .sub-title {
@@ -351,7 +356,7 @@ const getOtherList = () => {
 
         /** 組織架構盒子內的樣式  */
         .organizational-structure-box {
-            max-width: 80%;
+            max-width: 65%;
             margin-top: 3%;
 
             img {
@@ -376,6 +381,16 @@ const getOtherList = () => {
                 box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
                 margin-bottom: 2%;
                 padding: 0.7rem;
+
+                @media screen and (max-width:850px) {
+                    width: 44%;
+                }
+
+                @media screen and (max-width:480px) {
+                    width: 80%;
+                    margin: 0 auto;
+                    margin-bottom: 6%;
+                }
 
 
                 .supervisors-session {
@@ -446,7 +461,7 @@ const getOtherList = () => {
                     position: relative;
                     top: 0.3rem;
                     margin-left: 8px;
-                    background: url("@/assets/img/download-circle-fill.svg") no-repeat;
+                    background: url("@/assets/img/download-file-green.svg") no-repeat;
                     background-size: contain;
                     /* 確保圖標縮放到合適尺寸 */
                 }

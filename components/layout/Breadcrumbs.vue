@@ -22,6 +22,7 @@
 .breadcrumbs {
     padding: 20px 0;
     max-width: 100vw;
+    max-width: 100vw;
     background-color: #EAEAE9;
     display: flex;
     justify-content: center;
