@@ -1,7 +1,7 @@
 <!--  -->
 <template>
 
-    <Breadcrumbs firstRoute="信息看板" secoundRoute="活動花絮" ></Breadcrumbs>
+    <Breadcrumbs firstRoute="訊息看板" secoundRoute="活動花絮" ></Breadcrumbs>
 
     <section class="common-seciton">
 

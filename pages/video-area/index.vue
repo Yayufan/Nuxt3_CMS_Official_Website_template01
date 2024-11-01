@@ -153,9 +153,8 @@ let bookArticleList = reactive({
                 width: 1.8rem;
                 height: 1.8rem;
                 border-radius: 50%;
-
                 content: url('@/assets/img/play-button.svg');
-                background: #878788;
+                // background: #878788;
             }
 
 
