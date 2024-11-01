@@ -87,7 +87,7 @@ watch(scrollPosition, (newValue) => {
                 border-bottom: none;
                 margin-right: 3rem;
 
-                @media screen and (max-width: 1000px) {
+                @media screen and (max-width: 1100px) {
                     font-size: 1.2rem;
                     margin-right: 0;
 
@@ -111,7 +111,7 @@ watch(scrollPosition, (newValue) => {
             padding: 0 27px 0 0;
             margin-right: 3rem;
 
-            @media screen and (max-width: 1000px) {
+            @media screen and (max-width: 1100px) {
                 font-size: 1.2rem;
                 margin-right: 0;
             }
