@@ -12,21 +12,14 @@
             <article class="article-item" v-for="(item, index) in bookArticleList.records " :key="index">
 
                 <div class="article-info-box">
-                    <h2 class="article-title">{{ item.title }}</h2>
-
+                    <h2 class="article-title">NO.
+                        <span class="number">{{ item.title }}</span>
+                        <br>
+                        電子會刊
+                    </h2>
                 </div>
 
             </article>
-
-            <!-- 
-        分頁插件 total為總資料數(這邊設置20筆),  default-page-size代表每頁顯示資料(預設為10筆,這邊設置為5筆) 
-        current-page當前頁數,官方建議使用v-model與current-page去與自己設定的變量做綁定,
-        -->
-            <div class="common-pagination">
-                <el-pagination layout="prev, pager, next" :page-count="Number(bookArticleList.pages)"
-                    :default-page-size="Number(bookArticleList.size)" v-model:current-page="currentPage"
-                    :hide-on-single-page="true" :pager-count="5" />
-            </div>
 
         </div>
 
@@ -41,55 +34,108 @@
 import { ref, reactive } from 'vue'
 import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
 
-//設定分頁組件,currentPage當前頁數
-let currentPage = ref(1)
 
 let bookArticleList = reactive({
     pages: 9,
     size: 9,
     records: [
         {
-            title: '年紀太大不能器捐？',
+            title: '93',
             description: '簽署器捐同意書有年齡限制嘛？',
             imgUrl: '/img/default-article-img.jpg',
         },
         {
-            title: '認識器官捐贈 – 簽卡FAQ',
-            description: '2021年不只是器捐簽卡同意書信件如雪片般飛來，不論是官網留言、粉專提問或是致電協會，民眾諮詢也是同樣踴躍，那麼哪些問題是大家常常詢問的呢？',
-            imgUrl: '/img/default-article-img.jpg',
-        },
-        {
-            title: '年紀太大不能器捐？',
+            title: '92',
             description: '簽署器捐同意書有年齡限制嘛？',
             imgUrl: '/img/default-article-img.jpg',
         },
         {
-            title: '年紀太大不能器捐？',
+            title: '91',
             description: '簽署器捐同意書有年齡限制嘛？',
             imgUrl: '/img/default-article-img.jpg',
         },
         {
-            title: '認識器官捐贈 – 簽卡FAQ',
-            description: '2021年不只是器捐簽卡同意書信件如雪片般飛來，不論是官網留言、粉專提問或是致電協會，民眾諮詢也是同樣踴躍，那麼哪些問題是大家常常詢問的呢？',
-            imgUrl: '/img/default-article-img.jpg',
-        },
-        {
-            title: '年紀太大不能器捐？',
+            title: '90',
             description: '簽署器捐同意書有年齡限制嘛？',
             imgUrl: '/img/default-article-img.jpg',
         },
         {
-            title: '年紀太大不能器捐？',
+            title: '89',
             description: '簽署器捐同意書有年齡限制嘛？',
             imgUrl: '/img/default-article-img.jpg',
         },
         {
-            title: '認識器官捐贈 – 簽卡FAQ',
-            description: '2021年不只是器捐簽卡同意書信件如雪片般飛來，不論是官網留言、粉專提問或是致電協會，民眾諮詢也是同樣踴躍，那麼哪些問題是大家常常詢問的呢？',
+            title: '88',
+            description: '簽署器捐同意書有年齡限制嘛？',
             imgUrl: '/img/default-article-img.jpg',
         },
         {
-            title: '年紀太大不能器捐？',
+            title: '87',
+            description: '簽署器捐同意書有年齡限制嘛？',
+            imgUrl: '/img/default-article-img.jpg',
+        },
+        {
+            title: '86',
+            description: '簽署器捐同意書有年齡限制嘛？',
+            imgUrl: '/img/default-article-img.jpg',
+        },
+        {
+            title: '85',
+            description: '簽署器捐同意書有年齡限制嘛？',
+            imgUrl: '/img/default-article-img.jpg',
+        },
+        {
+            title: '84',
+            description: '簽署器捐同意書有年齡限制嘛？',
+            imgUrl: '/img/default-article-img.jpg',
+        },
+        {
+            title: '83',
+            description: '簽署器捐同意書有年齡限制嘛？',
+            imgUrl: '/img/default-article-img.jpg',
+        },
+        {
+            title: '82',
+            description: '簽署器捐同意書有年齡限制嘛？',
+            imgUrl: '/img/default-article-img.jpg',
+        },
+        {
+            title: '81',
+            description: '簽署器捐同意書有年齡限制嘛？',
+            imgUrl: '/img/default-article-img.jpg',
+        },
+        {
+            title: '80',
+            description: '簽署器捐同意書有年齡限制嘛？',
+            imgUrl: '/img/default-article-img.jpg',
+        },
+        {
+            title: '79',
+            description: '簽署器捐同意書有年齡限制嘛？',
+            imgUrl: '/img/default-article-img.jpg',
+        },
+        {
+            title: '78',
+            description: '簽署器捐同意書有年齡限制嘛？',
+            imgUrl: '/img/default-article-img.jpg',
+        },
+        {
+            title: '77',
+            description: '簽署器捐同意書有年齡限制嘛？',
+            imgUrl: '/img/default-article-img.jpg',
+        },
+        {
+            title: '76',
+            description: '簽署器捐同意書有年齡限制嘛？',
+            imgUrl: '/img/default-article-img.jpg',
+        },
+        {
+            title: '75',
+            description: '簽署器捐同意書有年齡限制嘛？',
+            imgUrl: '/img/default-article-img.jpg',
+        },
+        {
+            title: '74',
             description: '簽署器捐同意書有年齡限制嘛？',
             imgUrl: '/img/default-article-img.jpg',
         },
@@ -124,12 +170,28 @@ let bookArticleList = reactive({
         justify-content: space-between;
 
         .article-item {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             margin-bottom: 5%;
-            width: 25%;
+            border-radius: 50%;
+            border: 3px solid $main-content-color;
+            box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.3);
+            width: 200px;
+            height: 200px;
+            transition: 0.5s;
 
             //當滑鼠碰到這篇文章時,改變字體顏色+圖片放大
             &:hover {
                 cursor: pointer;
+
+                background: $sub-color ;
+
+                .article-info-box {
+                    color: #fff;
+                }
+
             }
 
             @media screen and (max-width:480px) {
@@ -139,11 +201,15 @@ let bookArticleList = reactive({
 
 
             .article-info-box {
-                text-align: left;
+                color: $sub-color;
 
                 .article-title {
-                    font-size: 1.2rem;
-                    margin: 0.8rem 0;
+                    font-size: 1.5rem;
+
+                    .number {
+                        font-size: 3rem;
+                    }
+
                 }
 
             }
