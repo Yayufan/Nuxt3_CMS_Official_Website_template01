@@ -36,12 +36,6 @@
                 <nuxt-link to="/laws"><el-menu-item>法令規章</el-menu-item></nuxt-link>
                 <nuxt-link to="/doctor-voice"><el-menu-item>白袍心聲</el-menu-item></nuxt-link>
                 
-                <el-menu-item></el-menu-item>
-                <el-menu-item></el-menu-item>
-                <el-menu-item></el-menu-item>
-                <el-menu-item></el-menu-item>
-                <el-menu-item></el-menu-item>
-                <el-menu-item></el-menu-item>
             </el-sub-menu>
             <el-sub-menu index="4">
                 <template #title>家屬關懷</template>
