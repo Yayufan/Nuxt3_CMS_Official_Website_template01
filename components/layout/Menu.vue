@@ -5,7 +5,8 @@
             popper-class="popper">
             <!-- <el-menu-item> -->
             <el-menu-item v-if="showLogo" class="logo-box">
-                <nuxt-link :to="'/'"><img ref="" class="logo" src="@/assets/img/logo.png" alt="logo"></nuxt-link>
+                <nuxt-link  :to="'/'"><img ref="" class="logo" src="@/assets/img/logo.png"
+                        alt="logo"></nuxt-link>
             </el-menu-item>
             <el-sub-menu index="1">
                 <template #title class="firstTitle">加入我們</template>
@@ -34,7 +35,7 @@
                 <nuxt-link to="/brochure-download"><el-menu-item>文宣下載</el-menu-item></nuxt-link>
                 <nuxt-link to="/laws"><el-menu-item>法令規章</el-menu-item></nuxt-link>
                 <nuxt-link to="/doctor-voice"><el-menu-item>白袍心聲</el-menu-item></nuxt-link>
-
+                
             </el-sub-menu>
             <el-sub-menu index="4">
                 <template #title>家屬關懷</template>
@@ -75,6 +76,8 @@ watch(scrollPosition, (newValue) => {
 
     .PC-navbar {
         border-bottom: none;
+        margin-top: 20px ;
+        padding: 0 ;
         margin-top: 20px;
         padding: 0;
 
@@ -126,6 +129,7 @@ watch(scrollPosition, (newValue) => {
                 width: 13rem;
             }
         }
+
 
     }
 }
