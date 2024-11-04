@@ -152,6 +152,14 @@ let bookArticleList = reactive({
 
                 .article-description {
                     color: $main-content-color;
+
+                    @media screen and (max-width:481px) {
+                        //這組合是超過三行時使用...
+                        display: -webkit-box;
+                        -webkit-box-orient: vertical;
+                        -webkit-line-clamp: 6;
+                        overflow: hidden;
+                    }
                 }
 
             }

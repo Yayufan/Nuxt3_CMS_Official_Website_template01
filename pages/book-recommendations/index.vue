@@ -130,7 +130,7 @@ let bookArticleList = reactive({
             width: 26%;
 
             @media screen and (max-width:480px) {
-                width: 75%;
+                width: 45%;
                 margin: 0 auto;
             }
 
@@ -158,8 +158,15 @@ let bookArticleList = reactive({
 
                 .book-article-description {
                     color: $main-content-color;
-                }
 
+                    @media screen and (max-width:481px) {
+                        //這組合是超過三行時使用...
+                        display: -webkit-box;
+                        -webkit-box-orient: vertical;
+                        -webkit-line-clamp: 4;
+                        overflow: hidden;
+                    }
+                }
             }
 
             .more-box {

@@ -137,7 +137,7 @@ let resourceArticleList = reactive({
 
     .content-box {
         @media screen and (max-width:481px) {
-            margin-left: 0;
+            margin-left: 8%;
         }
 
         margin-left: 14%;

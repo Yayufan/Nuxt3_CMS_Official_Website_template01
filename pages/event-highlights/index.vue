@@ -118,6 +118,7 @@ let articleList = reactive({
 
             .article-img-box {
                 max-width: 15rem;
+                min-width: 170px;
 
                 img {
                     width: 100%;
@@ -136,6 +137,13 @@ let articleList = reactive({
 
                 .article-description {
                     color: $main-content-color;
+
+                    @media screen and (max-width:480px) {
+                        display: -webkit-box;
+                        -webkit-box-orient: vertical;
+                        -webkit-line-clamp: 8;
+                        overflow: hidden;
+                    }
                 }
 
             }

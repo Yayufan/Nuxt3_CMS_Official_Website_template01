@@ -300,6 +300,11 @@ const getOtherList = () => {
             background-color: $main-color;
             padding: 5px 2.5rem;
             border-radius: 16px;
+
+            @media screen and (max-width:480px) {
+                margin-left: 0;
+            }
+
         }
 
         .content {
