@@ -110,6 +110,10 @@ import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
         margin-left: 10%;
         margin-right: 10%;
 
+        @media screen and (max-width:481px) {
+            margin-left: 0;
+        }
+
         .additional-information {
             margin-left: 1.7rem;
             margin-bottom: 5rem;

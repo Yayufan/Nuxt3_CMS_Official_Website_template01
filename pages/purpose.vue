@@ -271,12 +271,15 @@ const getOtherList = () => {
         margin-left: 10%;
         margin-bottom: 3%;
 
+        @media screen and (max-width:481px) {
+            margin-left: 0;
+        }
+
     }
 
     .content-box {
         // background-color: aqua;
         width: 100%;
-
         color: $main-content-color;
 
 
