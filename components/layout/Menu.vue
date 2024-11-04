@@ -68,7 +68,7 @@ watch(scrollPosition, (newValue) => {
 
 <style lang="scss" scoped>
 .menu-section {
-    @media screen and (max-width: 820px) {
+    @media screen and (max-width: 850px) {
             display: none;
     }
     background-color: #FFFFFF;

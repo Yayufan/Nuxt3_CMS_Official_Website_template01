@@ -144,7 +144,7 @@ let articleList = reactive({
 <style lang="scss" scoped>
 .main {
     width: 100%;
-    @media screen and (max-width: 820px) {
+    @media screen and (max-width: 850px) {
         margin-top: 0.4vw;
     }
 

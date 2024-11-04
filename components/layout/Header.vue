@@ -111,7 +111,7 @@ const selectItem = (index: number) => {
     display: flex;
     justify-content: center;
 
-    @media screen and (max-width: 820px) {
+    @media screen and (max-width: 850px) {
         justify-content: flex-start;
         box-shadow: 0 2px 0px rgba(0, 0, 0, 0.1);
     }
@@ -119,7 +119,7 @@ const selectItem = (index: number) => {
     .hambuger-menu {
         display: none;
 
-        @media screen and (max-width: 820px) {
+        @media screen and (max-width: 850px) {
             display: block;
             margin: 1vw 35% 1.5vw 1vw;
             width: 5vw;
@@ -130,7 +130,7 @@ const selectItem = (index: number) => {
     .logo-box {
         margin-left: 40vw;
 
-        @media screen and (max-width: 820px) {
+        @media screen and (max-width: 850px) {
             // margin: 0 0 1.5vw 0;
             width: 30vw;
             margin: 1vw 0 1.5vw 0;
@@ -144,7 +144,7 @@ const selectItem = (index: number) => {
     }
 
     .input-section {
-        @media screen and (max-width: 820px) {
+        @media screen and (max-width: 850px) {
             display: none;
         }
 
@@ -191,7 +191,7 @@ const selectItem = (index: number) => {
 .menu {
     display: none;
 
-    @media screen and (max-width: 820px) {
+    @media screen and (max-width: 850px) {
         // display: none;
         display: flex;
         flex-direction: column;
