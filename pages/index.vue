@@ -380,24 +380,20 @@ let articleList = reactive({
 
     .join-us-board {
         width: 100%;
-        // display: flex;
         margin-top: 5%;
 
         .title {
             margin-left: 10%;
             color: #E99B67;
-            font-size: 2.5rem;
+            font-size: 2rem;
             @media screen and (max-width: 850px) {
                 margin-left: 3.5%;
-                // text-align: center;
             }
         }
 
         .icon-link-box {
             display: flex;
             margin: 3% 0 0 10%;
-            // flex-wrap: wrap;
-            // width: 100%;
             @media screen and (max-width: 850px) {
                 width: 100%;
                 margin-left: 0;
@@ -408,7 +404,7 @@ let articleList = reactive({
             .link-item {
                 @media screen and (max-width: 850px) {
                     width: 28%;
-                    margin: 0 0 2% 0;
+                    margin: 0 5px 2% 5px;
                 }
                 margin: 0 8% 2% 0;
                 // width: 100%;
