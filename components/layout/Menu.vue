@@ -120,7 +120,6 @@ watch(scrollPosition, (newValue) => {
         .logo-box {
             transition: opacity 0.1s ease;
             margin-right: 2vw;
-            border: 1px red solid;
 
             .logo {
                 width: 13rem;

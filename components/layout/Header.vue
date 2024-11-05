@@ -1,6 +1,6 @@
 <template>
     <header class="PC-menu-box">
-        <img class="hambuger-menu" src="@/assets/img/hamburger-menu-more-svgrepo-com.svg" alt="" @click="openMenu">
+        <img class="hambuger-menu" src="@/assets/img/HamburgerMenu.png" alt="" @click="openMenu">
         <div class="logo-box">
             <nuxt-link :to="'/'"><img ref="" class="logo" src="@/assets/img/logo.png" alt="logo"></img></nuxt-link>
         </div>
@@ -118,8 +118,9 @@ const selectItem = (index: number) => {
 
         @media screen and (max-width: 850px) {
             display: block;
-            margin: 1vw 35% 1.5vw 1vw;
-            width: 5vw;
+            margin: 4vw 30% 1.5vw 5vw;
+            width: 3vw;
+            height: 3vw;
             cursor: pointer;
         }
     }
