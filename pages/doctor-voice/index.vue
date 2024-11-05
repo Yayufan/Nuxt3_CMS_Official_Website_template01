@@ -150,6 +150,10 @@ let resourceArticleList = reactive({
                 min-width: 6rem;
                 left: -2.3rem;
 
+                @media screen and (max-width:481px) {
+                    left: -1.8rem;
+                }
+
 
                 img {
                     width: 100%;
@@ -204,12 +208,10 @@ let resourceArticleList = reactive({
                 .article-more-box {
                     text-align: center;
                     margin-right: 1.5rem;
-                   
+
                     text-wrap-mode: nowrap;
 
-                    @media screen and (max-width:481px) {
-                        
-                    }
+                    @media screen and (max-width:481px) {}
 
                     .more-btn {
                         color: #fff;
