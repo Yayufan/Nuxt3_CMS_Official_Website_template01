@@ -18,9 +18,6 @@
     <div v-if="idOpened" class="menu">
         <div class="input-section">
             <el-input class="input" v-model="search">
-                <template #prefix>
-                    <img class="letter-icon" src="@/assets/img/letter-aa-large-svgrepo-com.svg" alt="">
-                </template>
                 <template #suffix>
                     <el-icon class="el-input__icon">
                         <ElIconSearch />
@@ -88,18 +85,18 @@ const menuItem = [
     },
     {
         title: '捐款贊助',
-        subMenu: []
+        subMenu: [{title: '捐款支持-立即行動', link: '/donate'},{title: '版畫有限量，愛心無限亮', link: '/charity-sale'}]
     },
     {
         title: '簽署器捐',
-        subMenu: [{title: '線上簽屬', link: '/'},{title: '簽卡停看聽', link: '/'},{title: '撤銷簽屬', link: '/'}]
+        subMenu: [{title: '線上簽屬', link: '/sign-online'},{title: '簽卡停看聽', link: '/frequently-asked-questions'},{title: '撤銷簽屬', link: '/cancel-donation'}]
     }
 ]
-const submenu = ref(menuItem[0].subMenu)
+const submenu = ref()
 
 const active = ref(false);
 
-const selectedIndex = ref(0);
+const selectedIndex = ref();
 const selectItem = (index: number) => {
     selectedIndex.value = index;
     submenu.value = menuItem[index].subMenu;
@@ -107,7 +104,7 @@ const selectItem = (index: number) => {
 </script>
 <style lang="scss" scoped>
 .PC-menu-box {
-    width: 100vw;
+    width: 100%;
     display: flex;
     justify-content: center;
 
@@ -151,7 +148,7 @@ const selectItem = (index: number) => {
         width: 25vw;
         display: flex;
         align-items: flex-end;
-        margin-left: 14vw;
+        margin-left: 15vw;
         padding-bottom: 0.5rem;
 
         .el-input {
@@ -196,8 +193,8 @@ const selectItem = (index: number) => {
         display: flex;
         flex-direction: column;
         background-color: #FFFFFF;
-        min-height: 750px;
-        width: 60vw;
+        // min-height: 750px;
+        width: 65vw;
         position: absolute;
         left: 0;
         top: 10.8vw;
@@ -212,11 +209,6 @@ const selectItem = (index: number) => {
         .el-input {
             width: 65%;
             padding: 10px 0 15px 0;
-        }
-
-        .letter-icon {
-            width: 3vw;
-            margin-right: 1vw;
         }
 
         :deep(.el-input__wrapper) {
@@ -243,7 +235,7 @@ const selectItem = (index: number) => {
 
     .menu-item-section {
         display: flex;
-        border-width: 0.5px 0 0.5px 0;
+        border-width: 0.5px 0 0px 0;
         min-height: 100%;
         border-color: $main-content-color;
         border-style: solid;
@@ -251,16 +243,20 @@ const selectItem = (index: number) => {
         .main-menu {
             display: flex;
             width: 40%;
+            min-height: 500px;
+            border: 1px solid #DDDDDD;
             flex-direction: column;
 
             .menu-item {
                 display: flex;
                 justify-content: center;
-                font-size: 1.5rem;
-                line-height: 60px;
-                border: 1px solid #DDDDDD;
-                width: 100%;
-                min-height: 60px;
+                align-items: center;
+                font-size: 1.2rem;
+                // line-height: 60px;
+                border-width: 0px 0px 0.1px 1px;
+                border-style: solid;
+                border-color: #DDDDDD;
+                min-height: 47px;
 
                 .icon-box {
                     min-width: 1.5rem;
@@ -282,17 +278,25 @@ const selectItem = (index: number) => {
 
         .sub-menu {
             display: flex;
-            // flex-grow: 1;
             width: 60%;
             flex-direction: column;
-
+            // align-items: center;
+            // justify-content: center;
             .menu-item {
+                display: flex;
+                justify-content: center;
+                align-items: center;
                 text-align: center;
-                font-size: 1.4rem;
-                line-height: 60px;
-                border: 1px solid #DDDDDD;
+                font-size: 1.2rem;
+                flex-wrap: wrap;
+                // align-self: center;
+                border-width: 0px 0px 0.1px 0px;
+                border-style: solid;
+                border-color: #DDDDDD;
+                // line-height: 47px;
+                // border: 0.1px solid #DDDDDD;
                 width: 100%;
-                min-height: 60px;
+                min-height: 47px;
 
             }
         }
