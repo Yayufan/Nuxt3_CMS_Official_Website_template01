@@ -199,6 +199,7 @@ const drawer = ref(false)
         }
 
         .go-to-donate {
+            display: inline-block;
             cursor: pointer;
             font-size: 1.2rem;
             margin: 0 5px;
@@ -210,7 +211,7 @@ const drawer = ref(false)
 
             @media screen and (max-width:481px) {
                 margin: 0 0.5rem;
-                box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.2);
+                box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.3);
             }
 
         }
