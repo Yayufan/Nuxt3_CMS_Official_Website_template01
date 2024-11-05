@@ -2,7 +2,7 @@
 <template>
 
     <div>
-        
+
         <Breadcrumbs firstRoute="認識器捐" secoundRoute="白袍心聲"></Breadcrumbs>
 
         <section class="common-section">
@@ -118,7 +118,9 @@ let resourceArticleList = reactive({
         justify-content: space-between;
 
         @media screen and (max-width:481px) {
-            margin-left: 0;
+            margin-left: 4%;
+            margin-right: 0;
+
         }
 
 
@@ -128,6 +130,7 @@ let resourceArticleList = reactive({
             align-items: center;
             width: 100%;
             margin-bottom: 3%;
+            padding-bottom: 0.4rem;
             min-height: 5rem;
             border-radius: 16px;
             border: 1px solid #b1b1b1;
@@ -137,6 +140,7 @@ let resourceArticleList = reactive({
             @media screen and (max-width:481px) {
                 width: 100%;
                 margin-bottom: 8%;
+
             }
 
 
@@ -166,10 +170,15 @@ let resourceArticleList = reactive({
                 justify-content: space-between;
                 width: 100%;
 
+                @media screen and (max-width:481px) {
+                    flex-direction: column;
+                }
+
                 .article-info-box {
                     text-align: left;
                     white-space: pre-wrap;
                     margin-right: 0.5rem;
+                    margin-top: 0.5rem;
 
 
                     .article-title {
@@ -183,6 +192,11 @@ let resourceArticleList = reactive({
                         -webkit-box-orient: vertical;
                         -webkit-line-clamp: 3;
                         overflow: hidden;
+
+                        @media screen and (max-width:481px) {
+                            -webkit-line-clamp: 5;
+                        }
+
                     }
 
                 }
@@ -190,7 +204,12 @@ let resourceArticleList = reactive({
                 .article-more-box {
                     text-align: center;
                     margin-right: 1.5rem;
+                   
                     text-wrap-mode: nowrap;
+
+                    @media screen and (max-width:481px) {
+                        
+                    }
 
                     .more-btn {
                         color: #fff;

@@ -154,6 +154,13 @@ const drawer = ref(false)
     margin: $common-section-margin;
     font-family: $common-section-font-family;
 
+    @media screen and (max-width:481px) {
+        :deep(.el-drawer) {
+            width: 80% !important;
+        }
+
+    }
+
 
     .common-title {
         color: $main-color;
