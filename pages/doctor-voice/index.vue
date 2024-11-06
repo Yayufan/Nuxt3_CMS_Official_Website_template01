@@ -1,49 +1,53 @@
 <!--  -->
 <template>
 
-    <Breadcrumbs firstRoute="認識器捐" secoundRoute="白袍心聲"></Breadcrumbs>
+    <div>
 
-    <section class="common-seciton">
+        <Breadcrumbs firstRoute="認識器捐" secoundRoute="白袍心聲"></Breadcrumbs>
 
-        <h1 class="common-title">白袍心聲</h1>
+        <section class="common-section">
 
-        <div class="content-box">
+            <h1 class="common-title">白袍心聲</h1>
 
-            <article class="article-item" v-for="(item, index) in resourceArticleList.records " :key="index">
+            <div class="content-box">
+
+                <article class="article-item" v-for="(item, index) in resourceArticleList.records " :key="index">
 
 
-                <div class="article-img-box">
-                    <img class="article-img" src="@/assets/img/doctor-voice-img-01.png">
-                </div>
-
-                <div class="article-base">
-                    <div class="article-info-box">
-                        <h2 class="article-title">{{ item.title }}</h2>
-                        <p class="article-description">{{ item.description }}</p>
+                    <div class="article-img-box">
+                        <img class="article-img" src="@/assets/img/doctor-voice-img-01.png">
                     </div>
 
-                    <div class="article-more-box">
-                        <button class="more-btn">查看更多</button>
+                    <div class="article-base">
+                        <div class="article-info-box">
+                            <h2 class="article-title">{{ item.title }}</h2>
+                            <p class="article-description">{{ item.description }}</p>
+                        </div>
+
+                        <div class="article-more-box">
+                            <button class="more-btn">查看更多</button>
+                        </div>
+
                     </div>
 
-                </div>
-
-            </article>
+                </article>
 
 
-            <!-- 
+                <!-- 
         分頁插件 total為總資料數(這邊設置20筆),  default-page-size代表每頁顯示資料(預設為10筆,這邊設置為5筆) 
         current-page當前頁數,官方建議使用v-model與current-page去與自己設定的變量做綁定,
         -->
-            <div class="common-pagination">
-                <el-pagination layout="prev, pager, next" :page-count="Number(resourceArticleList.pages)"
-                    :default-page-size="Number(resourceArticleList.size)" v-model:current-page="currentPage"
-                    :hide-on-single-page="true" :pager-count="5" />
+                <div class="common-pagination">
+                    <el-pagination layout="prev, pager, next" :page-count="Number(resourceArticleList.pages)"
+                        :default-page-size="Number(resourceArticleList.size)" v-model:current-page="currentPage"
+                        :hide-on-single-page="true" :pager-count="5" />
+                </div>
+
             </div>
 
-        </div>
+        </section>
 
-    </section>
+    </div>
 
 
 </template>
@@ -88,7 +92,7 @@ let resourceArticleList = reactive({
 </script>
 
 <style scoped lang="scss">
-.common-seciton {
+.common-section {
     width: $common-section-width;
     margin: $common-section-margin;
     font-family: $common-section-font-family;
@@ -114,7 +118,9 @@ let resourceArticleList = reactive({
         justify-content: space-between;
 
         @media screen and (max-width:481px) {
-            margin-left: 0;
+            margin-left: 4%;
+            margin-right: 0;
+
         }
 
 
@@ -124,6 +130,7 @@ let resourceArticleList = reactive({
             align-items: center;
             width: 100%;
             margin-bottom: 3%;
+            padding-bottom: 0.4rem;
             min-height: 5rem;
             border-radius: 16px;
             border: 1px solid #b1b1b1;
@@ -133,6 +140,7 @@ let resourceArticleList = reactive({
             @media screen and (max-width:481px) {
                 width: 100%;
                 margin-bottom: 8%;
+
             }
 
 
@@ -141,6 +149,10 @@ let resourceArticleList = reactive({
                 max-width: 6rem;
                 min-width: 6rem;
                 left: -2.3rem;
+
+                @media screen and (max-width:481px) {
+                    left: -1.8rem;
+                }
 
 
                 img {
@@ -162,10 +174,15 @@ let resourceArticleList = reactive({
                 justify-content: space-between;
                 width: 100%;
 
+                @media screen and (max-width:481px) {
+                    flex-direction: column;
+                }
+
                 .article-info-box {
                     text-align: left;
                     white-space: pre-wrap;
                     margin-right: 0.5rem;
+                    margin-top: 0.5rem;
 
 
                     .article-title {
@@ -179,6 +196,11 @@ let resourceArticleList = reactive({
                         -webkit-box-orient: vertical;
                         -webkit-line-clamp: 3;
                         overflow: hidden;
+
+                        @media screen and (max-width:481px) {
+                            -webkit-line-clamp: 5;
+                        }
+
                     }
 
                 }
@@ -186,7 +208,10 @@ let resourceArticleList = reactive({
                 .article-more-box {
                     text-align: center;
                     margin-right: 1.5rem;
+
                     text-wrap-mode: nowrap;
+
+                    @media screen and (max-width:481px) {}
 
                     .more-btn {
                         color: #fff;
@@ -196,9 +221,11 @@ let resourceArticleList = reactive({
                         letter-spacing: 0.1rem;
                         border: none;
                         font-weight: normal;
+                        transition: 0.5s;
 
                         &:hover {
                             cursor: pointer;
+                            background-color: $accent-hover-bg;
                         }
                     }
                 }

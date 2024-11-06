@@ -1,43 +1,48 @@
 <!--  -->
 <template>
 
-    <Breadcrumbs firstRoute="認識器捐" secoundRoute="器捐學堂"></Breadcrumbs>
+    <div>
 
-    <section class="common-seciton">
 
-        <h1 class="common-title">器捐學堂</h1>
 
-        <div class="content-box">
+        <Breadcrumbs firstRoute="認識器捐" secoundRoute="器捐學堂"></Breadcrumbs>
 
-            <article class="article-item" v-for="(item, index) in bookArticleList.records " :key="index">
-                <div class="article-img-box">
-                    <img class="article-img" :src="item.imgUrl">
-                </div>
+        <section class="common-section">
 
-                <div class="article-info-box">
-                    <h2 class="article-title">{{ item.title }}</h2>
-                    <p class="article-description">
-                        {{ item.description }}
-                    </p>
-                </div>
+            <h1 class="common-title">器捐學堂</h1>
 
-            </article>
+            <div class="content-box">
 
-            <!-- 
+                <article class="article-item" v-for="(item, index) in bookArticleList.records " :key="index">
+                    <div class="article-img-box">
+                        <img class="article-img" :src="item.imgUrl">
+                    </div>
+
+                    <div class="article-info-box">
+                        <h2 class="article-title">{{ item.title }}</h2>
+                        <p class="article-description">
+                            {{ item.description }}
+                        </p>
+                    </div>
+
+                </article>
+
+                <!-- 
         分頁插件 total為總資料數(這邊設置20筆),  default-page-size代表每頁顯示資料(預設為10筆,這邊設置為5筆) 
         current-page當前頁數,官方建議使用v-model與current-page去與自己設定的變量做綁定,
         -->
-            <div class="common-pagination">
-                <el-pagination layout="prev, pager, next" :page-count="Number(bookArticleList.pages)"
-                    :default-page-size="Number(bookArticleList.size)" v-model:current-page="currentPage"
-                    :hide-on-single-page="true" :pager-count="5" />
+                <div class="common-pagination">
+                    <el-pagination layout="prev, pager, next" :page-count="Number(bookArticleList.pages)"
+                        :default-page-size="Number(bookArticleList.size)" v-model:current-page="currentPage"
+                        :hide-on-single-page="true" :pager-count="5" />
+                </div>
+
             </div>
 
-        </div>
 
+        </section>
 
-    </section>
-
+    </div>
 
 </template>
 
@@ -46,7 +51,7 @@
 import { ref, reactive } from 'vue'
 import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
 
-//設定分頁組件,currentPage當前頁數
+//設定分頁組件,currentPage當前頁數.value
 let currentPage = ref(1)
 
 let bookArticleList = reactive({
@@ -101,13 +106,27 @@ let bookArticleList = reactive({
     ]
 })
 
+//獲取視口寬度及判斷是否為Mobile裝置
+const { width, isMobile } = useWindowSize()
+console.log('預設個數', bookArticleList.size)
 
+console.log(bookArticleList)
+
+onMounted(() => {
+    //如果使用者裝置是使用mobile,更改顯示數量
+    if (isMobile.value) {
+        bookArticleList.size = 4
+    }
+
+    console.log('根據使用者裝置變更預設個數', bookArticleList.size)
+    console.log(bookArticleList)
+})
 
 
 </script>
 
 <style scoped lang="scss">
-.common-seciton {
+.common-section {
     width: $common-section-width;
     margin: $common-section-margin;
     font-family: $common-section-font-family;
@@ -122,6 +141,7 @@ let bookArticleList = reactive({
 
         @media screen and (max-width:481px) {
             margin-left: 0;
+
         }
     }
 
@@ -134,15 +154,19 @@ let bookArticleList = reactive({
 
         @media screen and (max-width:481px) {
             margin-left: 0;
+            margin-right: 0;
         }
 
         .article-item {
             margin-bottom: 5%;
-            width: 30%;
+            width: 29%;
+            padding: 1rem 1rem;
+            transition: 0.5s;
 
             //當滑鼠碰到這篇文章時,改變字體顏色+圖片放大
             &:hover {
                 cursor: pointer;
+                background: $main-hover-bg;
 
                 .article-img-box {
                     img {
@@ -152,7 +176,7 @@ let bookArticleList = reactive({
             }
 
             @media screen and (max-width:480px) {
-                width: 75%;
+                width: 85%;
                 margin: 0 auto;
             }
 
