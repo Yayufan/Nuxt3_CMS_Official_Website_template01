@@ -41,7 +41,7 @@
                 <template #title>家屬關懷</template>
                 <nuxt-link :to="'/assistance-resources'"><el-menu-item>協助資源</el-menu-item></nuxt-link>
                 <nuxt-link :to="'/book-recommendations'"><el-menu-item>好書推薦</el-menu-item></nuxt-link>
-                <nuxt-link><el-menu-item>家屬資料填寫</el-menu-item></nuxt-link>
+                <nuxt-link to="https://docs.google.com/forms/d/e/1FAIpQLScxrl0on7gvcaTYTI9knEgy0-dwGHhT7SeJfS183B8g811QHQ/viewform"><el-menu-item>家屬資料填寫</el-menu-item></nuxt-link>
                 <nuxt-link :to="'/social-work-column'"><el-menu-item>社工專欄</el-menu-item></nuxt-link>
                 <nuxt-link :to="'/miss-me'"><el-menu-item>如果你要懷念我</el-menu-item></nuxt-link>
             </el-sub-menu>
