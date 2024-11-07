@@ -9,28 +9,27 @@
 
             <h1 class="common-title">白袍心聲</h1>
 
-            <div class="content-box">
+            <div class="content-box" ref="contentBox">
 
-                <article class="article-item" v-for="(item, index) in articleList.records " :key="index">
-
-
-                    <div class="article-img-box">
-                        <img class="article-img" src="@/assets/img/doctor-voice-img-01.png">
-                    </div>
-
-                    <div class="article-base">
-                        <div class="article-info-box">
-                            <h2 class="article-title">{{ item.title }}</h2>
-                            <p class="article-description">{{ item.description }}</p>
+                <transition-group name="pagination">
+                    <article class="article-item" v-for="(item, index) in articleList.records " :key="item.articleId">
+                        <div class="article-img-box">
+                            <img class="article-img" src="@/assets/img/doctor-voice-img-01.png">
                         </div>
 
-                        <div class="article-more-box">
-                            <button class="more-btn">查看更多</button>
+                        <div class="article-base">
+                            <div class="article-info-box">
+                                <h2 class="article-title">{{ item.title }}</h2>
+                                <p class="article-description">{{ item.description }}</p>
+                            </div>
+
+                            <div class="article-more-box">
+                                <nuxt-link class="more-btn"
+                                    :to="{ name: 'doctor-voice-id', params: { id: item.articleId } }">查看更多</nuxt-link>
+                            </div>
                         </div>
-
-                    </div>
-
-                </article>
+                    </article>
+                </transition-group>
 
 
                 <!-- 
@@ -61,26 +60,32 @@ import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
 let currentPage = ref(1)
 let currentSize = ref(4)
 
+const contentBox = ref()
+
 let articleList = reactive({
     pages: 1,
     size: 4,
     records: [
         {
+            articleId: 123,
             title: '小明的春天',
             description: `白北榮總一般外科主治醫師 / 龍藉泉。\r\n\r\n原刊於中華民國器官捐贈協會會刊第22期 - 89年12月出刊`,
             imgUrl: 'https://www.organ.org.tw/upload/%7B638599453067666981%7D_%E6%82%B2%E5%82%B7%E7%9A%84%E5%A4%A7%E8%85%A6.jpg',
         },
         {
+            articleId: 123,
             title: '憶乃哥',
             description: `白北榮總一般外科主治醫師 / 龍藉泉。\r\n\r\n原刊於中華民國器官捐贈協會會刊第22期 - 89年12月出刊`,
             imgUrl: 'https://www.organ.org.tw/upload/%7B638599453067666981%7D_%E6%82%B2%E5%82%B7%E7%9A%84%E5%A4%A7%E8%85%A6.jpg',
         },
         {
+            articleId: 123,
             title: '小明的春天',
             description: `白北榮總一般外科主治醫師 / 龍藉泉。\r\n\r\n原刊於中華民國器官捐贈協會會刊第22期 - 89年12月出刊`,
             imgUrl: 'https://www.organ.org.tw/upload/%7B638599453067666981%7D_%E6%82%B2%E5%82%B7%E7%9A%84%E5%A4%A7%E8%85%A6.jpg',
         },
         {
+            articleId: 123,
             title: '憶乃哥',
             description: `白北榮總一般外科主治醫師 / 龍藉泉。\r\n\r\n原刊於中華民國器官捐贈協會會刊第22期 - 89年12月出刊`,
             imgUrl: 'https://www.organ.org.tw/upload/%7B638599453067666981%7D_%E6%82%B2%E5%82%B7%E7%9A%84%E5%A4%A7%E8%85%A6.jpg',
@@ -91,7 +96,7 @@ let articleList = reactive({
 
 const GROUP = "doctorVoice"
 
-//獲取所有醫療新知的資料
+//獲取分頁文章的資料
 const getArticleList = async (page: number, size: number) => {
     let { data: response } = await SSRrequest.get('article/doctorVoice/pagination', {
         params: {
@@ -107,11 +112,22 @@ const getArticleList = async (page: number, size: number) => {
 
 }
 
-await getArticleList(currentPage.value,currentSize.value)
+//立即執行獲取資料
+await getArticleList(currentPage.value, currentSize.value)
+
+console.log('獲取的資料', articleList)
 
 //監聽當前頁數的變化,如果有更動就call API 獲取數組數據
 watch(currentPage, (value, oldValue) => {
+
     getArticleList(value, currentSize.value)
+
+    // 使用window.scrollTo()方法触发滚动效果，每當分頁數據改變,回到最上方
+    setTimeout(() => window.scrollTo({
+        top: 0,
+        behavior: 'smooth' // 平滑滚动
+    }), 200)
+
 })
 
 
