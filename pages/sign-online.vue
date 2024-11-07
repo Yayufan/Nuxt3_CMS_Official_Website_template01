@@ -7,10 +7,10 @@
             <div class="content-box">
                 <p class="title">器官捐贈同意書</p>
                 <div class="statement">
-                    <p>本人瞭解醫療有其極限，而愛心可以延續，經閱讀，知悉後列說明後，願意簽署<span class="donation-form"><b><u>【器官捐贈同意書】</u></b></span>，
+                    <p>本人瞭解醫療有其極限，而愛心可以延續，經閱讀，知悉後列說明後，願意簽署<a class="donation-form" href="/files/organs-donate-consent.pdf" target="_blank"><u>【器官捐贈同意書】</u></a>，
                     </p>
                     <p>並將此意願註記於健保卡，於生命之盡頭，捐贈可用器官，讓其他需要的病人能因此而獲得重生機會。</p>
-                    <p>如須撤銷器捐同意，請下載<span class="cancel-form"><b><u>【撤銷器捐同意書】</u></b></span>填寫後由寄正本到本會。</p>
+                    <p>如須撤銷器捐同意，請下載<a class="cancel-form" href="/files/cancel-organs-donate.pdf" target="_blank"><u>【撤銷器捐同意書】</u></a>填寫後由寄正本到本會。</p>
                 </div>
             </div>
             <div class="form-section">
@@ -60,22 +60,22 @@
                     <el-form-item class="donate-organs unnecessary" label="願意捐贈器官/組織項目(可複選)">
                         <el-checkbox-group v-model="form.donateOrgans">
                             <div class="checkbox-div">
-                                <el-checkbox label="全部捐贈" value="1"></el-checkbox>
-                                <el-checkbox label="全部捐贈" value="2"></el-checkbox>
-                                <el-checkbox label="全部捐贈" value="3"></el-checkbox>
-                                <el-checkbox label="全部捐贈" value="4"></el-checkbox>
+                                <el-checkbox label="全部捐贈" value="all"></el-checkbox>
+                                <el-checkbox label="肺臟" value="lung"></el-checkbox>
+                                <el-checkbox label="胰臟" value="pancreas"></el-checkbox>
+                                <el-checkbox label="小腸" value="smallIntestine"></el-checkbox>
                             </div>
                             <div class="checkbox-div">
-                                <el-checkbox label="全部捐贈" value="5"></el-checkbox>
-                                <el-checkbox label="全部捐贈" value="6"></el-checkbox>
-                                <el-checkbox label="全部捐贈" value="7"></el-checkbox>
-                                <el-checkbox label="全部捐贈" value="8"></el-checkbox>
+                                <el-checkbox label="皮膚" value="skin"></el-checkbox>
+                                <el-checkbox label="心瓣膜" value="heartValve"></el-checkbox>
+                                <el-checkbox label="心臟" value="heart"></el-checkbox>
+                                <el-checkbox label="肝臟" value="liver"></el-checkbox>
                             </div>
                             <div class="checkbox-div">
-                                <el-checkbox label="全部捐贈" value="9"></el-checkbox>
-                                <el-checkbox label="全部捐贈" value="10"></el-checkbox>
-                                <el-checkbox label="全部捐贈" value="11"></el-checkbox>
-                                <el-checkbox label="全部捐贈" value="12"></el-checkbox>
+                                <el-checkbox label="腎臟" value="kidney"></el-checkbox>
+                                <el-checkbox label="眼角膜" value="cornea"></el-checkbox>
+                                <el-checkbox label="骨骼" value="bones"></el-checkbox>
+                                <el-checkbox label="血管" value="bloodVessels"></el-checkbox>
                             </div>
                         </el-checkbox-group>
                     </el-form-item>
