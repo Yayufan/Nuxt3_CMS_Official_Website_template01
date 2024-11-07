@@ -11,7 +11,7 @@
 
             <div class="content-box">
 
-                <article class="article-item" v-for="(item, index) in resourceArticleList.records " :key="index">
+                <article class="article-item" v-for="(item, index) in articleList.records " :key="index">
 
 
                     <div class="article-img-box">
@@ -38,8 +38,8 @@
         current-page當前頁數,官方建議使用v-model與current-page去與自己設定的變量做綁定,
         -->
                 <div class="common-pagination">
-                    <el-pagination layout="prev, pager, next" :page-count="Number(resourceArticleList.pages)"
-                        :default-page-size="Number(resourceArticleList.size)" v-model:current-page="currentPage"
+                    <el-pagination layout="prev, pager, next" :page-count="Number(articleList.pages)"
+                        :default-page-size="Number(articleList.size)" v-model:current-page="currentPage"
                         :hide-on-single-page="true" :pager-count="5" />
                 </div>
 
@@ -59,8 +59,9 @@ import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
 
 //設定分頁組件,currentPage當前頁數
 let currentPage = ref(1)
+let currentSize = ref(4)
 
-let resourceArticleList = reactive({
+let articleList = reactive({
     pages: 1,
     size: 4,
     records: [
@@ -87,6 +88,32 @@ let resourceArticleList = reactive({
 
     ]
 })
+
+const GROUP = "doctorVoice"
+
+//獲取所有醫療新知的資料
+const getArticleList = async (page: number, size: number) => {
+    let { data: response } = await SSRrequest.get('article/doctorVoice/pagination', {
+        params: {
+            page,
+            size
+        }
+    })
+
+    // 直接更新 articleList 的值
+    if (response.value?.data) {
+        Object.assign(articleList, response.value.data)
+    }
+
+}
+
+await getArticleList(currentPage.value,currentSize.value)
+
+//監聽當前頁數的變化,如果有更動就call API 獲取數組數據
+watch(currentPage, (value, oldValue) => {
+    getArticleList(value, currentSize.value)
+})
+
 
 
 </script>
