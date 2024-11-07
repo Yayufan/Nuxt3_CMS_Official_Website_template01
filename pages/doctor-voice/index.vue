@@ -9,7 +9,7 @@
 
             <h1 class="common-title">白袍心聲</h1>
 
-            <div class="content-box" ref="contentBox">
+            <div class="content-box">
 
                 <transition-group name="pagination">
                     <article class="article-item" v-for="(item, index) in articleList.records " :key="item.articleId">
@@ -60,7 +60,8 @@ import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
 let currentPage = ref(1)
 let currentSize = ref(4)
 
-const contentBox = ref()
+//獲取視口寬度及判斷是否為Mobile裝置,SSR渲染中width是0,所以要在onMounted中使用
+const { width, isMobile } = useWindowSize()
 
 let articleList = reactive({
     pages: 1,
@@ -121,13 +122,25 @@ console.log('獲取的資料', articleList)
 watch(currentPage, (value, oldValue) => {
 
     getArticleList(value, currentSize.value)
-
+    
     // 使用window.scrollTo()方法触发滚动效果，每當分頁數據改變,回到最上方
     setTimeout(() => window.scrollTo({
         top: 0,
         behavior: 'smooth' // 平滑滚动
     }), 200)
 
+})
+
+
+
+onMounted(() => {
+    //如果使用者裝置是使用mobile,更改顯示數量
+    console.log(isMobile.value)
+    if (isMobile.value) {
+        currentSize.value = 5
+        //立刻再查詢一次
+        getArticleList(currentPage.value, currentSize.value)
+    }
 })
 
 
@@ -165,7 +178,6 @@ watch(currentPage, (value, oldValue) => {
             margin-right: 0;
 
         }
-
 
         .article-item {
             position: relative;
@@ -257,6 +269,7 @@ watch(currentPage, (value, oldValue) => {
                     @media screen and (max-width:481px) {}
 
                     .more-btn {
+                        display: inline-block;
                         color: #fff;
                         background-color: $accent-color;
                         padding: 0.5rem 3rem;
