@@ -3,7 +3,7 @@
         <img class="hambuger-menu" src="@/assets/img/HamburgerMenu.png" alt="" @click="openMenu">
         <div class="logo-box">
             <nuxt-link :to="'/'"><img ref="" class="logo" src="@/assets/img/logo.png" alt="logo"
-                    @click="isOpened = false"></img></nuxt-link>
+                    @click="closeMenu"></img></nuxt-link>
         </div>
         <div class="input-section">
             <el-input class="input" v-model="search">
@@ -16,7 +16,7 @@
             <nuxt-link class="contact" :to="'/'">聯絡我們</nuxt-link>
         </div>
     </header>
-    <div v-if="isOpened" class="mask" @click="isOpened = false"></div>
+    <div v-if="isOpened" class="mask" @click="closeMenu"></div>
     <div v-if="isOpened" class="menu">
         <div class="input-section">
             <el-input class="input" v-model="search">
@@ -31,7 +31,7 @@
         <div class="menu-item-section">
             <div class="main-menu">
                 <div :class="['menu-item', { active: selectedIndex === index }]" v-for="(item, index) in menuItem"
-                    @click="selectItem(index)">{{ item.title }}<div class="icon-box"><el-icon
+                    @click="()=>selectItem(index)">{{ item.title }}<div class="icon-box"><el-icon
                             v-if="selectedIndex === index">
                             <ElIconArrowRight />
                         </el-icon></div>
@@ -53,6 +53,11 @@ const isOpened = ref(false)
 const openMenu = () => {
     isOpened.value = !isOpened.value
 }
+const closeMenu = () => {
+    isOpened.value = false
+}
+
+
 
 const menuItem = [
     {

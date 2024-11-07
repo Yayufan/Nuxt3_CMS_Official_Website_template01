@@ -260,10 +260,10 @@ let articleList = reactive({
                     border-color: #F4D4BE;
                 }
 
-                &.el-button:first-child {
-                    background-color: #8F1D22;
-                    color: white;
-                }
+                // &.el-button:first-child {
+                //     background-color: #8F1D22;
+                //     color: white;
+                // }
 
                 &.el-button:not(:first-child) {
                     @media screen and (max-width: 850px) {
