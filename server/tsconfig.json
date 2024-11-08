@@ -1,4 +1,6 @@
 {
-  "exclude": ["ecosystem.config.js"],
+  "exclude": [
+    "./ecosystem.config.js"
+  ],
   "extends": "../.nuxt/tsconfig.server.json"
 }
