@@ -41,7 +41,7 @@
         -->
 
 
-                <div class="common-pagination" v-if="articleList.pages >= 1" >
+                <div class="common-pagination" v-if="articleList.pages >= 1">
                     <el-pagination layout="prev, pager, next" :page-count="Number(articleList.pages)"
                         :default-page-size="Number(articleList.size)" v-model:current-page="currentPage"
                         :hide-on-single-page="true" :pager-count="5" />
@@ -61,37 +61,40 @@
 import { ref, reactive } from 'vue'
 import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
 
+
+
 //設定分頁組件,currentPage當前頁數
 let currentPage = ref(1)
-let currentSize = ref(null)
+let currentSize = ref(useState('currentSize', () => useIsMobile().value ? 5 : 4))
+console.log(currentSize.value)
 
 const GROUP = "doctorVoice"
 
 
-if (process.server) {
-    const event = useRequestEvent()
-    console.log('我處在Server端', event)
-    if (event.context.isMobile) {
-        currentSize.value = 5
-    } else {
-        currentSize.value = 4
-    }
-}
 // console.log('是否是手機:',isMobile)
 
 
-let articleList = reactive({})
+let articleList = reactive({
+    pages: 1,
+    size: 4,
+    records: [
+        {
+            articleId: '',
+            title: '',
+            description: ''
+        }
+    ]
+})
 
 
 //獲取分頁文章的資料
 const getArticleList = async (page: number, size: number) => {
-    let { data: response,pending } = await SSRrequest.get('article/doctorVoice/pagination', {
+    let { data: response, pending } = await SSRrequest.get('article/doctorVoice/pagination', {
         params: {
             page,
             size
         }
     })
-
 
     // 直接更新 articleList 的值
     if (response.value?.data) {
@@ -111,6 +114,7 @@ console.log(articleList)
 //監聽當前頁數的變化,如果有更動就call API 獲取數組數據
 watch(currentPage, (value, oldValue) => {
 
+    console.log(currentSize.value)
     getArticleList(value, currentSize.value)
 
     // 使用window.scrollTo()方法触发滚动效果，每當分頁數據改變,回到最上方
