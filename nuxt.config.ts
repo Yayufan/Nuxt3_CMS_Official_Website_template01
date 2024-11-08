@@ -88,7 +88,6 @@ export default defineNuxtConfig({
         // 可以繼續列出不需要預渲染的其他路由
       ]
     }
-  }
-
+  },
 
 })

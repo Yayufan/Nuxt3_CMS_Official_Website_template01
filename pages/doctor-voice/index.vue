@@ -231,6 +231,7 @@ watch(currentPage, (value, oldValue) => {
                         display: -webkit-box;
                         -webkit-box-orient: vertical;
                         -webkit-line-clamp: 3;
+                        line-clamp: 3; /* 這是標準屬性 */
                         overflow: hidden;
 
                         @media screen and (max-width:481px) {
