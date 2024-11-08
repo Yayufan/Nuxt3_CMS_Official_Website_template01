@@ -39,7 +39,9 @@
         分頁插件 total為總資料數(這邊設置20筆),  default-page-size代表每頁顯示資料(預設為10筆,這邊設置為5筆) 
         current-page當前頁數,官方建議使用v-model與current-page去與自己設定的變量做綁定,
         -->
-                <div class="common-pagination">
+
+
+                <div class="common-pagination" v-if="articleList.pages >= 1" >
                     <el-pagination layout="prev, pager, next" :page-count="Number(articleList.pages)"
                         :default-page-size="Number(articleList.size)" v-model:current-page="currentPage"
                         :hide-on-single-page="true" :pager-count="5" />
@@ -61,55 +63,35 @@ import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
 
 //設定分頁組件,currentPage當前頁數
 let currentPage = ref(1)
-let currentSize = ref(4)
-
-//獲取視口寬度及判斷是否為Mobile裝置,SSR渲染中width是0,所以要在onMounted中使用
-const { width, isMobile } = useWindowSize()
-
-let articleList = reactive({
-    pages: 1,
-    size: 4,
-    records: [
-        {
-            articleId: 123,
-            title: '小明的春天',
-            description: `白北榮總一般外科主治醫師 / 龍藉泉。\r\n\r\n原刊於中華民國器官捐贈協會會刊第22期 - 89年12月出刊`,
-            imgUrl: 'https://www.organ.org.tw/upload/%7B638599453067666981%7D_%E6%82%B2%E5%82%B7%E7%9A%84%E5%A4%A7%E8%85%A6.jpg',
-        },
-        {
-            articleId: 123,
-            title: '憶乃哥',
-            description: `白北榮總一般外科主治醫師 / 龍藉泉。\r\n\r\n原刊於中華民國器官捐贈協會會刊第22期 - 89年12月出刊`,
-            imgUrl: 'https://www.organ.org.tw/upload/%7B638599453067666981%7D_%E6%82%B2%E5%82%B7%E7%9A%84%E5%A4%A7%E8%85%A6.jpg',
-        },
-        {
-            articleId: 123,
-            title: '小明的春天',
-            description: `白北榮總一般外科主治醫師 / 龍藉泉。\r\n\r\n原刊於中華民國器官捐贈協會會刊第22期 - 89年12月出刊`,
-            imgUrl: 'https://www.organ.org.tw/upload/%7B638599453067666981%7D_%E6%82%B2%E5%82%B7%E7%9A%84%E5%A4%A7%E8%85%A6.jpg',
-        },
-        {
-            articleId: 123,
-            title: '憶乃哥',
-            description: `白北榮總一般外科主治醫師 / 龍藉泉。\r\n\r\n原刊於中華民國器官捐贈協會會刊第22期 - 89年12月出刊`,
-            imgUrl: 'https://www.organ.org.tw/upload/%7B638599453067666981%7D_%E6%82%B2%E5%82%B7%E7%9A%84%E5%A4%A7%E8%85%A6.jpg',
-        },
-
-    ]
-})
-
-/**
+let currentSize = ref(null)
 
 const GROUP = "doctorVoice"
 
+
+if (process.server) {
+    const event = useRequestEvent()
+    console.log('我處在Server端', event)
+    if (event.context.isMobile) {
+        currentSize.value = 5
+    } else {
+        currentSize.value = 4
+    }
+}
+// console.log('是否是手機:',isMobile)
+
+
+let articleList = reactive({})
+
+
 //獲取分頁文章的資料
 const getArticleList = async (page: number, size: number) => {
-    let { data: response } = await SSRrequest.get('article/doctorVoice/pagination', {
+    let { data: response,pending } = await SSRrequest.get('article/doctorVoice/pagination', {
         params: {
             page,
             size
         }
     })
+
 
     // 直接更新 articleList 的值
     if (response.value?.data) {
@@ -121,13 +103,16 @@ const getArticleList = async (page: number, size: number) => {
 //立即執行獲取資料
 await getArticleList(currentPage.value, currentSize.value)
 
-console.log('獲取的資料', articleList)
+
+
+
+console.log(articleList)
 
 //監聽當前頁數的變化,如果有更動就call API 獲取數組數據
 watch(currentPage, (value, oldValue) => {
 
     getArticleList(value, currentSize.value)
-    
+
     // 使用window.scrollTo()方法触发滚动效果，每當分頁數據改變,回到最上方
     setTimeout(() => window.scrollTo({
         top: 0,
@@ -135,21 +120,6 @@ watch(currentPage, (value, oldValue) => {
     }), 200)
 
 })
-
-
-
-onMounted(() => {
-    //如果使用者裝置是使用mobile,更改顯示數量
-    console.log(isMobile.value)
-    if (isMobile.value) {
-        console.log('開始執行Mobile')
-        currentSize.value = 5
-        //立刻再查詢一次
-        getArticleList(currentPage.value, currentSize.value)
-    }
-})
-
- */
 
 
 </script>
