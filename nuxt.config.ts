@@ -24,7 +24,7 @@ export default defineNuxtConfig({
   app: {
     //如果是需要設置再Nginx或者Apache的子目路上,需要加上baseURL,務必記得加上/線, 它就會自動在需要的地方上增加子目錄層級,
     //但是這邊要注意,如果是由後端給的URL字串,要訪問靜態目錄結構的URL 則需要注意路徑問題,如果是Minio其實沒這個問題
-    baseURL: "",
+    baseURL: "/organ2/",
 
     head: {
       charset: 'utf-8', //預設,不設置也行
@@ -80,5 +80,18 @@ export default defineNuxtConfig({
     icon: 'ElIcon',
 
     /** 其他Options */
+  },
+
+  nitro: {
+    prerender: {
+      ignore: [
+        '/organ2/education-surgery/1',
+        '/organ2/professional/1'
+        // 可以繼續列出不需要預渲染的其他路由
+      ]
+    }
   }
+
+
+
 })

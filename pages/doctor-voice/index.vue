@@ -24,8 +24,11 @@
                             </div>
 
                             <div class="article-more-box">
-                                <nuxt-link class="more-btn"
-                                    :to="{ name: 'doctor-voice-id', params: { id: item.articleId } }">查看更多</nuxt-link>
+                                <!-- <nuxt-link class="more-btn"
+                                    :to="{ name: 'doctor-voice-id', params: { id: item.articleId } }">查看更多</nuxt-link> -->
+
+                                <nuxt-link class="more-btn">查看更多</nuxt-link>
+
                             </div>
                         </div>
                     </article>
@@ -95,6 +98,8 @@ let articleList = reactive({
     ]
 })
 
+/**
+
 const GROUP = "doctorVoice"
 
 //獲取分頁文章的資料
@@ -144,6 +149,7 @@ onMounted(() => {
     }
 })
 
+ */
 
 
 </script>
