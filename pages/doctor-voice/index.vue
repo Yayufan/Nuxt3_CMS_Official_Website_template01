@@ -24,10 +24,8 @@
                             </div>
 
                             <div class="article-more-box">
-                                <!-- <nuxt-link class="more-btn"
-                                    :to="{ name: 'doctor-voice-id', params: { id: item.articleId } }">查看更多</nuxt-link> -->
-
-                                <nuxt-link class="more-btn">查看更多</nuxt-link>
+                                <nuxt-link class="more-btn"
+                                    :to="{ name: 'doctor-voice-id', params: { id: item.articleId } }">查看更多</nuxt-link>
 
                             </div>
                         </div>
@@ -39,7 +37,6 @@
         分頁插件 total為總資料數(這邊設置20筆),  default-page-size代表每頁顯示資料(預設為10筆,這邊設置為5筆) 
         current-page當前頁數,官方建議使用v-model與current-page去與自己設定的變量做綁定,
         -->
-
 
                 <div class="common-pagination" v-if="articleList.pages >= 1">
                     <el-pagination layout="prev, pager, next" :page-count="Number(articleList.pages)"
@@ -61,18 +58,11 @@
 import { ref, reactive } from 'vue'
 import Breadcrumbs from '@/components/layout/Breadcrumbs.vue'
 
-
-
 //設定分頁組件,currentPage當前頁數
 let currentPage = ref(1)
 let currentSize = ref(useState('currentSize', () => useIsMobile().value ? 5 : 4))
-console.log(currentSize.value)
 
 const GROUP = "doctorVoice"
-
-
-// console.log('是否是手機:',isMobile)
-
 
 let articleList = reactive({
     pages: 1,
@@ -89,7 +79,7 @@ let articleList = reactive({
 
 //獲取分頁文章的資料
 const getArticleList = async (page: number, size: number) => {
-    let { data: response, pending } = await SSRrequest.get('article/doctorVoice/pagination', {
+    let { data: response, pending } = await SSRrequest.get(`article/${GROUP}/pagination`, {
         params: {
             page,
             size
@@ -107,14 +97,9 @@ const getArticleList = async (page: number, size: number) => {
 await getArticleList(currentPage.value, currentSize.value)
 
 
-
-
-console.log(articleList)
-
 //監聽當前頁數的變化,如果有更動就call API 獲取數組數據
 watch(currentPage, (value, oldValue) => {
 
-    console.log(currentSize.value)
     getArticleList(value, currentSize.value)
 
     // 使用window.scrollTo()方法触发滚动效果，每當分頁數據改變,回到最上方
@@ -231,7 +216,8 @@ watch(currentPage, (value, oldValue) => {
                         display: -webkit-box;
                         -webkit-box-orient: vertical;
                         -webkit-line-clamp: 3;
-                        line-clamp: 3; /* 這是標準屬性 */
+                        line-clamp: 3;
+                        /* 這是標準屬性 */
                         overflow: hidden;
 
                         @media screen and (max-width:481px) {
@@ -269,8 +255,6 @@ watch(currentPage, (value, oldValue) => {
                 }
 
             }
-
-
 
         }
 
