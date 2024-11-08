@@ -137,6 +137,7 @@ onMounted(() => {
     //如果使用者裝置是使用mobile,更改顯示數量
     console.log(isMobile.value)
     if (isMobile.value) {
+        console.log('開始執行Mobile')
         currentSize.value = 5
         //立刻再查詢一次
         getArticleList(currentPage.value, currentSize.value)
