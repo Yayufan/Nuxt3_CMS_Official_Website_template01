@@ -2,7 +2,6 @@
 <template>
 
     <div>
-
         <Breadcrumbs firstRoute="家屬關懷" secoundRoute="社工專欄"></Breadcrumbs>
 
         <section class="common-section">
