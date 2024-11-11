@@ -3,6 +3,8 @@
 
     <section class="article-section">
 
+        <Breadcrumbs2 firstRoute="協助資源" :secoundRoute="article.title"></Breadcrumbs2>
+
         <div class="title-box">
             <div class="title">{{ article.title }}</div>
             <div class="announcementDate">{{ article.announcementDate }}</div>
@@ -19,6 +21,7 @@
 
 import { ref, reactive } from 'vue'
 import 'ckeditor5/ckeditor5.css';
+import Breadcrumbs2 from '@/components/layout/Breadcrumbs2.vue'
 
 const route = useRoute();
 
@@ -51,9 +54,7 @@ await getArticle()
     font-family: initial;
 
     .title-box {
-
-        margin: 0 8%;
-        margin-bottom: 2%;
+        margin: 3% 8%;
         display: flex;
         justify-content: space-between;
         align-items: center;
