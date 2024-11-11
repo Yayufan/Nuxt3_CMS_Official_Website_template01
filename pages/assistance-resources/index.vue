@@ -85,8 +85,6 @@ const updatePaginationParams = useUpdatePaginationParams()
 //傳續判斷裝置後的預設值,這個就是分頁的size
 const { page, size } = useGetPaginationParams(defaultSize.value)
 
-const route = useRoute()
-
 //設定分頁組件,currentPage當前頁數
 let currentPage = ref(page)
 let currentSize = ref(size)
