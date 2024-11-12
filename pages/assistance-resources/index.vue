@@ -179,20 +179,21 @@ watch(currentPage, (value, oldValue) => {
         }
 
         .article-item {
-            display: contents;
 
+            width: 40%;
+            margin-bottom: 2%;
+            min-height: 5rem;
+            border-radius: 16px;
+            border: 1px solid #b1b1b1;
+            box-shadow: 0 2px 4px 2px rgba(0, 0, 0, 0.2);
+            transition: 0.5s;
 
             .article-item-link {
+
                 position: relative;
                 display: flex;
                 align-items: center;
-                width: 40%;
-                margin-bottom: 2%;
-                min-height: 5rem;
-                border-radius: 16px;
-                border: 1px solid #b1b1b1;
-                box-shadow: 0 2px 4px 2px rgba(0, 0, 0, 0.2);
-                transition: 0.5s;
+
 
                 //當滑鼠碰到這篇文章時,改變字體顏色+圖片放大
                 &:hover {

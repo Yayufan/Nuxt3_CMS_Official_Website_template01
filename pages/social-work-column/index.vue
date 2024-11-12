@@ -163,8 +163,6 @@ watch(currentPage, (value, oldValue) => {
         }
 
 
-
-
         .article-item {
             position: relative;
             display: flex;

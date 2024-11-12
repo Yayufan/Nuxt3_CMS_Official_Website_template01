@@ -50,7 +50,8 @@ await getArticle()
 
 <style scoped lang="scss">
 .article-section {
-    margin: 3% auto;
+    margin: 0 auto;
+    margin-bottom: 3%;
     font-family: initial;
 
     .title-box {
