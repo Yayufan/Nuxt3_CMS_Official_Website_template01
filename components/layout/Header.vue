@@ -120,7 +120,9 @@ const selectItem = (index: number) => {
     selectedIndex.value = index;
     submenu.value = menuItem[index].subMenu;
 }
+
 </script>
+
 <style lang="scss" scoped>
 .PC-menu-box {
     width: 100%;
