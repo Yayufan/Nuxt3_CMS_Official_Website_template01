@@ -36,7 +36,7 @@
 
             <el-button class="cancel-button" @click="isOpened = false"><el-icon><ElIconClose /></el-icon></el-button>
         </div> -->
-        
+
         <div class="menu-item-section">
             <div class="main-menu">
                 <div :class="['menu-item', { active: selectedIndex === index }]" v-for="(item, index) in menuItem"
