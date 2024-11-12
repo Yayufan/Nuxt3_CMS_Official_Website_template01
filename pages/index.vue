@@ -15,10 +15,13 @@
         <div class="message-board-box">
             <div class="title">訊息看板</div>
             <div class="header-button-section">
-                <el-button :class="{ active: activeLink === 'news' }" @click="handleClick('news')">最新消息</el-button>
+                <el-button :class="{ active: activeLink === 'news' }" :disabled="isMobile"
+                    @click="handleClick('news')">最新消息</el-button>
                 <el-button :class="{ active: activeLink === 'eventHighlights' }"
-                    @click="handleClick('eventHighlight')">活動花絮</el-button>
-                <el-button :class="{ active: activeLink === 'form' }" @click="handleClick('form')">合作申請單</el-button>
+                    @click="handleClick('eventHighlights')">活動花絮</el-button>
+                <el-button :class="{ active: activeLink === 'form' }">
+                    <nuxt-link class="btn-link" to="/cooperation">合作申請單</nuxt-link>
+                </el-button>
             </div>
             <div class="article-box">
                 <el-button class="pre-page-btn" @click="togglePrePage()">
@@ -39,11 +42,13 @@
                     </el-icon>
                 </el-button>
             </div>
+
+
             <div class="mobile-header-button-section">
-                <el-button class="active" @click="handleClick('eventHighlight')">活動花絮</el-button>
+                <el-button class="active" disabled>活動花絮</el-button>
             </div>
             <div class="mobile-article-box">
-                <div class="article-item" v-for="item in articleList.records">
+                <div class="article-item" v-for="item in eventHighlightsList.records">
                     <div class="article-img">
                         <nuxt-link to="/"><img :src="`/minio${item.coverThumbnailUrl}`" alt=""></nuxt-link>
                     </div>
@@ -98,22 +103,38 @@
 <script setup lang='ts'>
 
 const viewWidth = ref(0);
-const activeLink = ref('eventHighlights');
+const activeLink = ref('news');
 
 /** */
 
 //根據裝置預設顯示數量
 // const defaultSize = ref(useState('currentSize', () => useIsMobile().value ? 8 : 8))
+const isMobile = ref<boolean>(useIsMobile().value);
 const defaultSize = ref(useIsMobile().value ? 3 : 5)
 
 //傳續判斷裝置後的預設值,這個就是分頁的size
 const { page, size } = useGetPaginationParams(defaultSize.value)
+
 
 //設定分頁組件,currentPage當前頁數
 let currentPage = ref(page)
 let currentSize = ref(size)
 
 let articleList = reactive({
+    pages: 1,
+    size: 4,
+    records: [
+        {
+            articleId: '',
+            title: '',
+            description: '',
+            coverThumbnailUrl: ''
+        }
+    ]
+})
+
+
+let eventHighlightsList = reactive({
     pages: 1,
     size: 4,
     records: [
@@ -139,15 +160,32 @@ const getArticleList = async (page: number, size: number) => {
     // 直接更新 articleList 的值
     if (response.value?.data) {
         Object.assign(articleList, response.value.data)
-
     }
 
 }
 
-//立即執行獲取資料
-await getArticleList(currentPage.value, currentSize.value)
+//獲取分頁文章的資料
+const getEventHighlightsList = async (page: number, size: number) => {
+    let { data: response, pending } = await SSRrequest.get(`article/eventHighlights/pagination`, {
+        params: {
+            page,
+            size
+        }
+    })
 
-//監聽當前頁數的變化,如果有更動就call API 獲取數組數據
+    // 直接更新 articleList 的值
+    if (response.value?.data) {
+        Object.assign(eventHighlightsList, response.value.data)
+    }
+
+}
+
+
+// //立即執行獲取資料
+await getArticleList(currentPage.value, currentSize.value)
+await getEventHighlightsList(currentPage.value, currentSize.value)
+
+// //監聽當前頁數的變化,如果有更動就call API 獲取數組數據
 watch(currentPage, (value, oldValue) => {
     getArticleList(value, currentSize.value)
 })
@@ -169,8 +207,11 @@ const toggleNextPage = () => {
 }
 
 const handleClick = (link: string) => {
+    console.log(isMobile.value)
     activeLink.value = link;
+    getArticleList(currentPage.value, currentSize.value)
 }
+
 
 
 // const updateViewWidth = () => {
@@ -261,7 +302,7 @@ const handleClick = (link: string) => {
         // 標題
         .title {
             display: inline-block;
-            font-size: 2rem;
+            font-size: 1.5rem;
             color: #FFFFFF;
             margin-left: 10%;
             padding: 15px 0;
@@ -280,7 +321,7 @@ const handleClick = (link: string) => {
             justify-content: space-around;
             padding: 10px 0;
 
-            @media screen and (max-width: 850px) {
+            @media screen and (max-width: 481px) {
                 justify-content: flex-start;
                 padding-left: 10%;
             }
@@ -291,6 +332,11 @@ const handleClick = (link: string) => {
                 font-size: 1rem;
                 background-color: #F4D4BE;
 
+                .btn-link {
+                    color: inherit;
+                }
+
+
                 // 點擊時的邊框顏色
                 &:active {
                     border-color: #F4D4BE;
@@ -300,9 +346,13 @@ const handleClick = (link: string) => {
                 //     background-color: #8F1D22;
                 //     color: white;
                 // }
+                @media screen and (max-width: 481px) {
+                    background-color: #8F1D22;
+                    color: white;
+                }
 
                 &.el-button:not(:first-child) {
-                    @media screen and (max-width: 850px) {
+                    @media screen and (max-width: 481px) {
                         display: none;
                     }
                 }
@@ -327,7 +377,7 @@ const handleClick = (link: string) => {
             .el-button {
 
                 // 行動裝置下隱藏
-                @media screen and (max-width: 850px) {
+                @media screen and (max-width: 481px) {
                     display: none;
                 }
 
@@ -354,6 +404,10 @@ const handleClick = (link: string) => {
                 margin: 1vw 5px;
 
                 @media screen and (max-width: 850px) {
+                    max-width: 15vw;
+                }
+
+                @media screen and (max-width: 481px) {
                     max-width: 30vw;
                 }
 
@@ -362,6 +416,10 @@ const handleClick = (link: string) => {
                     height: 17vw;
 
                     @media screen and (max-width: 850px) {
+                        height: 15vw;
+                    }
+
+                    @media screen and (max-width: 481px) {
                         height: 30vw;
                     }
                 }
@@ -389,13 +447,13 @@ const handleClick = (link: string) => {
         .mobile-article-box {
             margin-bottom: 2vw;
 
-            @media screen and (min-width: 850px) {
+            @media screen and (min-width: 481px) {
                 display: none;
             }
         }
 
         .page-box {
-            @media screen and (max-width: 850px) {
+            @media screen and (max-width: 481px) {
                 display: none;
             }
 
@@ -435,7 +493,7 @@ const handleClick = (link: string) => {
         .title {
             margin-left: 10%;
             color: #E99B67;
-            font-size: 2rem;
+            font-size: 1.5rem;
 
             @media screen and (max-width: 850px) {
                 margin-left: 3.5%;
